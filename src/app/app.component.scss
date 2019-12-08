@@ -1,0 +1,77 @@
+:host {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: grid;
+  @media (orientation: landscape) {
+    grid-template-areas:
+      "ac sc sc sc bc"
+      "ac gd gd gd bc"
+      "ac gd gd gd bc"
+      "ac gd gd gd bc";
+  }
+  @media (orientation: portrait) {
+    grid-template-areas:
+      "gd gd gd"
+      "gd gd gd"
+      "gd gd gd"
+      "bc bc bc"
+      "sc sc sc"
+      "ac ac ac";
+  }
+}
+
+.a-cards {
+  grid-area: ac;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  @media (orientation: landscape) {
+    flex-direction: column;
+  }
+}
+
+.b-cards {
+  grid-area: bc;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  @media (orientation: landscape) {
+    flex-direction: column;
+  }
+}
+
+.spare-card {
+  grid-area: sc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  grid-area: gd;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  background-color: white;
+
+  .cell:nth-child(-2n + 5),
+  .cell:nth-child(5) ~ .cell:nth-child(-2n + 9),
+  .cell:nth-child(10) ~ .cell:nth-child(-2n + 25) {
+    background-color: lightgrey;
+  }
+
+  .cell > .occupant {
+    font-size: x-large;
+
+    &.side-a {
+      color: red;
+    }
+    &.side-b {
+      color: blue;
+    }
+  }
+}

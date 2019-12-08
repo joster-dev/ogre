@@ -1,0 +1,24 @@
+<div class="a-cards">
+  <ogre-card *ngFor="let card of game.aCards" [card]="card"></ogre-card>
+</div>
+
+<div class="b-cards">
+  <ogre-card *ngFor="let card of game.bCards" [card]="card"></ogre-card>
+</div>
+
+<div class="spare-card">
+  <ogre-card [card]="game.spareCard"></ogre-card>
+</div>
+
+<div class="grid">
+  <button *ngFor="let cell of game.grid" class="cell victory-{{cell.victory === 'a' ? 'a' : 'b'}}" type="button">
+    <div *ngIf="cell.occupant !== undefined" class="occupant">
+      <div *ngIf="cell.occupant!.side === 'a'">
+        {{cell.occupant!.isMain === true ? '♔' : '♙' }}
+      </div>
+      <div *ngIf="cell.occupant!.side === 'b'">
+        {{cell.occupant!.isMain === true ? '♚' : '♟' }}
+      </div>
+    </div>
+  </button>
+</div>

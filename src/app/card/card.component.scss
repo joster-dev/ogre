@@ -1,0 +1,6 @@
+.cell {
+  background-color: white;
+  & .active {
+    background-color: black;
+  }
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Game } from './game';
 
 @Component({
   selector: 'ogre-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ogre';
+  game = new Game();
 }
