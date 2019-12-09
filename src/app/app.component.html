@@ -1,9 +1,11 @@
 <div class="a-cards">
   <ogre-card *ngFor="let card of game.aCards" [card]="card"></ogre-card>
+  <div class="watermark">♕</div>
 </div>
 
 <div class="b-cards">
   <ogre-card *ngFor="let card of game.bCards" [card]="card"></ogre-card>
+  <div class="watermark">♛</div>
 </div>
 
 <div class="spare-card">
@@ -20,7 +22,7 @@
         {{cell.occupant!.isMain === true ? '♚' : '♟' }}
       </div>
     </div>
-    <div *ngIf="cell.victory" class="victory">
+    <div *ngIf="cell.victory" class="watermark">
       {{cell.victory === 'a' ? '♔' : '♚' }}
     </div>
   </button>

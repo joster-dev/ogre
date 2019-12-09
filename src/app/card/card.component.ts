@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, ElementRef, Renderer2 } from '@angular/core';
 import { Card } from '../card.interface';
 
 
@@ -12,10 +12,11 @@ export class CardComponent implements OnChanges {
 
   grid: GridCard[] = [];
 
-  constructor() { }
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
 
   ngOnChanges() {
     this.createGrid();
+    this.renderer.setAttribute(this.elementRef.nativeElement, 'title', this.card.name);
   }
 
   private createGrid() {

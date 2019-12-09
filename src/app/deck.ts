@@ -3,6 +3,7 @@ import { Card } from './card.interface';
 export const DECK: Card[] = [
   {
     name: 'Tiger',
+    icon: '🐅',
     moves: [
       { x: 0, y: 2 },
       { x: 0, y: -1 }
@@ -10,6 +11,7 @@ export const DECK: Card[] = [
   },
   {
     name: 'Crab',
+    icon: '🦀',
     moves: [
       { x: 0, y: 1 },
       { x: -2, y: 0 },
@@ -18,6 +20,7 @@ export const DECK: Card[] = [
   },
   {
     name: 'Monkey',
+    icon: '🐒',
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 1 },
@@ -26,7 +29,8 @@ export const DECK: Card[] = [
     ]
   },
   {
-    name: 'Crane',
+    name: 'Duck',
+    icon: '🦆',
     moves: [
       { x: 0, y: 1 },
       { x: -1, y: -1 },
@@ -35,6 +39,7 @@ export const DECK: Card[] = [
   },
   {
     name: 'Dragon',
+    icon: '🐉',
     moves: [
       { x: -2, y: 1 },
       { x: 2, y: 1 },
@@ -44,6 +49,7 @@ export const DECK: Card[] = [
   },
   {
     name: 'Elephant',
+    icon: '🐘',
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 1 },
@@ -52,7 +58,8 @@ export const DECK: Card[] = [
     ]
   },
   {
-    name: 'Mantis',
+    name: 'Eagle',
+    icon: '🦅',
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 1 },
@@ -61,6 +68,7 @@ export const DECK: Card[] = [
   },
   {
     name: 'Boar',
+    icon: '🐗',
     moves: [
       { x: 0, y: 1 },
       { x: -1, y: 0 },
@@ -69,6 +77,7 @@ export const DECK: Card[] = [
   },
   {
     name: 'Frog',
+    icon: '🐸',
     moves: [
       { x: -2, y: 0 },
       { x: -1, y: 1 },
@@ -76,7 +85,8 @@ export const DECK: Card[] = [
     ]
   },
   {
-    name: 'Goose',
+    name: 'Swan',
+    icon: '🦢',
     moves: [
       { x: -1, y: 1 },
       { x: -1, y: 0 },
@@ -86,6 +96,7 @@ export const DECK: Card[] = [
   },
   {
     name: 'Horse',
+    icon: '🐎',
     moves: [
       { x: -1, y: 0 },
       { x: 0, y: 1 },
@@ -93,7 +104,8 @@ export const DECK: Card[] = [
     ]
   },
   {
-    name: 'Eel',
+    name: 'Dolphin',
+    icon: '🐬',
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 0 },
@@ -102,6 +114,7 @@ export const DECK: Card[] = [
   },
   {
     name: 'Rabbit',
+    icon: '🐇',
     moves: [
       { x: -1, y: -1 },
       { x: 1, y: 1 },
@@ -110,6 +123,7 @@ export const DECK: Card[] = [
   },
   {
     name: 'Rooster',
+    icon: '🐓',
     moves: [
       { x: -1, y: 0 },
       { x: -1, y: -1 },
@@ -119,6 +133,7 @@ export const DECK: Card[] = [
   },
   {
     name: 'Ox',
+    icon: '🐂',
     moves: [
       { x: 0, y: 1 },
       { x: 0, y: -1 },
@@ -126,7 +141,8 @@ export const DECK: Card[] = [
     ]
   },
   {
-    name: 'Cobra',
+    name: 'Snake',
+    icon: '🐍',
     moves: [
       { x: -1, y: 0 },
       { x: 1, y: 1 },
