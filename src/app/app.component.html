@@ -11,7 +11,7 @@
 </div>
 
 <div class="grid">
-  <button *ngFor="let cell of game.grid" class="cell victory-{{cell.victory === 'a' ? 'a' : 'b'}}" type="button">
+  <button *ngFor="let cell of game.grid" class="cell" type="button" [style.grid-column]="cell.x + 1" [style.grid-row]="cell.y + 1">
     <div *ngIf="cell.occupant !== undefined" class="occupant">
       <div *ngIf="cell.occupant!.side === 'a'">
         {{cell.occupant!.isMain === true ? '♔' : '♙' }}
@@ -19,6 +19,9 @@
       <div *ngIf="cell.occupant!.side === 'b'">
         {{cell.occupant!.isMain === true ? '♚' : '♟' }}
       </div>
+    </div>
+    <div *ngIf="cell.victory" class="victory">
+      {{cell.victory === 'a' ? '♔' : '♚' }}
     </div>
   </button>
 </div>

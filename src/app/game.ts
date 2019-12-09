@@ -24,14 +24,14 @@ export class Game {
       }
     }
 
-    for (let x = 0; x < 5; x++) {
-      const aCell = this.grid.find(cell => cell.x === x && cell.y === 0);
-      const bCell = this.grid.find(cell => cell.x === x && cell.y === 4);
+    for (let y = 0; y < 5; y++) {
+      const aCell = this.grid.find(cell => cell.x === 0 && cell.y === y);
+      const bCell = this.grid.find(cell => cell.x === 4 && cell.y === y);
       if (aCell === undefined || bCell === undefined) {
-        throw new Error('grid built incorrectly')
+        throw new Error('grid built incorrectly');
       }
-      aCell.occupant = new Pawn('a', x === 2);
-      bCell.occupant = new Pawn('b', x === 2);
+      aCell.occupant = new Pawn('a', y === 2);
+      bCell.occupant = new Pawn('b', y === 2);
     }
 
     this.shuffle(this.deck);

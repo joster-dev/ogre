@@ -1,6 +1,29 @@
-.cell {
-  background-color: white;
-  & .active {
-    background-color: black;
+:host {
+  padding: 1em;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  padding-right: 1em;
+}
+
+.grid {
+  width: 5em;
+  height: 5em;
+  display: grid;
+  grid-gap: 1px;
+  background-color: black;
+  border: 1px solid black;
+
+  .cell {
+    background-color: white;
+    &.active {
+      background-color: lightgrey;
+    }
+    &.center {
+      background-color: grey;
+    }
   }
 }

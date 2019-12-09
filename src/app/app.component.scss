@@ -54,14 +54,29 @@
 .grid {
   grid-area: gd;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  background-color: white;
+
+  .cell {
+    position: relative;
+    background-color: white;
+
+    .victory {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      font-size: 5rem;
+      opacity: 0.08;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 
   .cell:nth-child(-2n + 5),
   .cell:nth-child(5) ~ .cell:nth-child(-2n + 9),
   .cell:nth-child(10) ~ .cell:nth-child(-2n + 25) {
-    background-color: lightgrey;
+    background-color: #eee;
   }
 
   .cell > .occupant {

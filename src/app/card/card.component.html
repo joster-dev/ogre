@@ -2,5 +2,5 @@
   {{card.name}}
 </div>
 <div class="grid">
-  <div *ngFor="let cell of grid" class="cell" [class.active]="cell.isActive === true"></div>
+  <div *ngFor="let cell of grid" class="cell" [class.active]="cell.isActive === true" [class.center]="cell.isCenter === true" [style.grid-column]="cell.x + 1" [style.grid-row]="cell.y + 1"></div>
 </div>
