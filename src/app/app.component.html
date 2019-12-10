@@ -1,18 +1,18 @@
-<div class="a-cards">
-  <ogre-card *ngFor="let card of game.aCards" [card]="card"></ogre-card>
+<div class="a-cards" [class.active]="game.turn === 'a' && game.aSelectedCard === undefined">
+  <ogre-card *ngFor="let card of game.aCards" [card]="card" [class.active]="game.aSelectedCard === card" [disabled]="game.turn === 'b'" (action)="game.chooseCard(card)"></ogre-card>
   <div class="watermark">♕</div>
 </div>
 
 <div class="b-cards">
-  <ogre-card *ngFor="let card of game.bCards" [card]="card"></ogre-card>
+  <ogre-card *ngFor="let card of game.bCards" [card]="card" [disabled]="game.turn === 'a'"></ogre-card>
   <div class="watermark">♛</div>
 </div>
 
 <div class="spare-card">
-  <ogre-card [card]="game.spareCard"></ogre-card>
+  <ogre-card [card]="game.spareCard" [disabled]="true"></ogre-card>
 </div>
 
-<div class="grid">
+<div class="grid" [class.active]="game.aSelectedCard !== undefined || game.bSelectedCard !== undefined">
   <button *ngFor="let cell of game.grid" class="cell" type="button" [style.grid-column]="cell.x + 1" [style.grid-row]="cell.y + 1">
     <div *ngIf="cell.occupant !== undefined" class="occupant">
       <div *ngIf="cell.occupant!.side === 'a'">

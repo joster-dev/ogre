@@ -1,4 +1,5 @@
-:host {
+button {
+  background-color: white;
   padding: 1em;
   border: 1px solid black;
   display: flex;
@@ -6,7 +7,8 @@
 }
 
 .icon {
-  padding-right: 1em;
+  padding-left: 1em;
+  font-size: 1.5em;
 }
 
 .grid {

@@ -8,7 +8,9 @@ export class Game {
   deck = DECK;
   turn: 'a' | 'b' = 'a';
   aCards: Card[] = [];
+  aSelectedCard?: Card;
   bCards: Card[] = [];
+  bSelectedCard?: Card;
   spareCard: Card;
 
   constructor() {
@@ -49,6 +51,18 @@ export class Game {
       }
       i % 2 === 0 ? this.aCards.push(topCard) : this.bCards.push(topCard);
     }
+  }
+
+  chooseCard(card: Card): void {
+    if (this.turn === 'a') {
+      this.aSelectedCard = card === this.aSelectedCard ? undefined : card;
+    } else {
+      this.bSelectedCard = card === this.bSelectedCard ? undefined : card;
+    }
+
+    // const possibleMoves: { pawn: Pawn, cell: Cell }[] = this.grid.filter(cell => cell.occupant !== undefined && cell.occupant.side === this.turn).reduce((accumulator, cell) => {
+    //   return accumulator.concat([])
+    // }, [])
   }
 
   private shuffle(array: any[]) {

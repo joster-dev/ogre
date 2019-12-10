@@ -24,6 +24,10 @@
   }
 }
 
+.active {
+  box-shadow: 0 0 1em black;
+}
+
 .a-cards,
 .b-cards {
   display: flex;
@@ -71,10 +75,14 @@
 .grid {
   grid-area: gd;
   display: grid;
+  grid-gap: 1px;
+  background-color: black;
+  border: 1px solid black;
 
   .cell {
     position: relative;
     background-color: white;
+    border: none;
 
     .watermark {
       position: absolute;
