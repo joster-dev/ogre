@@ -2,67 +2,79 @@ import { Cell } from './cell';
 import { DECK } from './deck';
 import { Pawn } from './pawn';
 import { Card } from './card.interface';
+import { Move } from './move.interface';
 
 export class Game {
-  grid: Cell[] = [];
-  deck = DECK;
+  cells: Cell[] = [];
   turn: 'a' | 'b' = 'a';
-  aCards: Card[] = [];
-  aSelectedCard?: Card;
-  bCards: Card[] = [];
-  bSelectedCard?: Card;
-  spareCard: Card;
+  cards: Card[] = [];
 
   constructor() {
-    for (let x = 0; x < 5; x++) {
-      for (let y = 0; y < 5; y++) {
-        if (x === 0 && y === 2) {
-          this.grid.push(new Cell(x, y, 'a'));
-        } else if (x === 4 && y === 2) {
-          this.grid.push(new Cell(x, y, 'b'));
-        } else {
-          this.grid.push(new Cell(x, y));
-        }
-      }
-    }
+    this.cells = this.createGrid();
 
-    for (let y = 0; y < 5; y++) {
-      const aCell = this.grid.find(cell => cell.x === 0 && cell.y === y);
-      const bCell = this.grid.find(cell => cell.x === 4 && cell.y === y);
-      if (aCell === undefined || bCell === undefined) {
-        throw new Error('grid built incorrectly');
-      }
-      aCell.occupant = new Pawn('a', y === 2);
-      bCell.occupant = new Pawn('b', y === 2);
-    }
+    const deck = DECK;
 
-    this.shuffle(this.deck);
+    this.shuffle(deck);
 
-    let topCard = this.deck.pop();
-    if (topCard === undefined) {
-      throw new Error('deck built incorrectly');
-    }
-    this.spareCard = topCard;
+    let topCard = deck.pop();
 
-    for (let i = 0; i < 4; i++) {
-      topCard = this.deck.pop();
-      if (topCard === undefined) {
-        throw new Error('deck built incorrectly');
-      }
-      i % 2 === 0 ? this.aCards.push(topCard) : this.bCards.push(topCard);
+    for (let i = 0; i < 5; i++) {
+      topCard = deck.pop();
+      if (topCard === undefined) throw new Error('deck built incorrectly');
+      topCard.side = i === 0
+        ? undefined
+        : i % 2 === 0
+          ? 'a' : 'b';
+      this.cards.push(topCard);
     }
   }
 
-  chooseCard(card: Card): void {
-    if (this.turn === 'a') {
-      this.aSelectedCard = card === this.aSelectedCard ? undefined : card;
-    } else {
-      this.bSelectedCard = card === this.bSelectedCard ? undefined : card;
-    }
+  play(move: Move): boolean {
+    // way of claw
+    if (move.target.occupant !== undefined && move.target.occupant.side !== this.turn && move.target.occupant.isMain === true) return true;
+    move.target.occupant = move.source.occupant;
+    move.source.occupant = undefined;
+    // way of stone
+    if (move.target.victory === this.turn) return true;
+    const hold = this.cards.find(card => card.side === undefined);
+    if (hold === undefined) throw new Error('erg blerg');
+    this.turn = this.turn === 'a' ? 'b' : 'a';
+    return false;
+  }
 
-    // const possibleMoves: { pawn: Pawn, cell: Cell }[] = this.grid.filter(cell => cell.occupant !== undefined && cell.occupant.side === this.turn).reduce((accumulator, cell) => {
-    //   return accumulator.concat([])
-    // }, [])
+  get moves(): Move[] {
+    return this.cards.filter(card => card.side === this.turn).reduce((accumulator: Move[], card) => {
+      const mappedMoves: { x: number, y: number }[] = card.moves
+        .map(move => ({ x: this.turn === 'b' ? -move.y : move.y, y: this.turn === 'a' ? -move.x : move.x }));
+      const occupiedCells = this.cells
+        .filter(cell => cell.occupant !== undefined && cell.occupant.side === this.turn);
+      const newMoves: Move[] = [];
+      for (const cell of occupiedCells) {
+        for (const move of mappedMoves) {
+          const newX = cell.x + move.x;
+          const newY = cell.y + move.y;
+          if (newX < 0 || newX > 4 || newY < 0 || newY > 4) continue;
+          const targetCell = this.cells.find(c => c.x === newX && c.y === newY);
+          if (targetCell === undefined || (targetCell.occupant !== undefined && targetCell.occupant.side === this.turn)) continue;
+          newMoves.push({
+            card,
+            source: cell,
+            target: targetCell
+          });
+        }
+      }
+      return [...accumulator, ...newMoves];
+    }, []);
+  }
+
+  private createGrid(): Cell[] {
+    const temp: Cell[] = [];
+    for (let x = 0; x < 5; x++) {
+      for (let y = 0; y < 5; y++) {
+        temp.push(new Cell(x, y));
+      }
+    }
+    return temp;
   }
 
   private shuffle(array: any[]) {

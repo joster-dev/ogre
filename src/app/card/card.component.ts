@@ -30,9 +30,7 @@ export class CardComponent implements OnChanges {
     }
     this.card.moves.forEach(move => {
       const targetCell = this.grid.find(cell => cell.x === 2 - move.x && cell.y === 2 - move.y);
-      if (targetCell === undefined) {
-        throw new Error('card move is incorrect');
-      }
+      if (targetCell === undefined) throw new Error('card move is incorrect');
       targetCell.isActive = true;
     });
   }

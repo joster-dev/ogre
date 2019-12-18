@@ -1,29 +1,17 @@
-<div class="a-cards" [class.active]="game.turn === 'a' && game.aSelectedCard === undefined">
-  <ogre-card *ngFor="let card of game.aCards" [card]="card" [class.active]="game.aSelectedCard === card" [disabled]="game.turn === 'b'" (action)="game.chooseCard(card)"></ogre-card>
+<div class="a-cards" [class.active]="game.turn === 'a' && selectedCard === undefined">
+  <ogre-card *ngFor="let card of aCards" [card]="card" [class.active]="selectedCard === card" [disabled]="game.turn === 'b'" (action)="selectCard(card)"></ogre-card>
   <div class="watermark">♕</div>
 </div>
 
-<div class="b-cards">
-  <ogre-card *ngFor="let card of game.bCards" [card]="card" [disabled]="game.turn === 'a'"></ogre-card>
+<div class="b-cards" [class.active]="game.turn === 'b' && selectedCard === undefined">
+  <ogre-card *ngFor="let card of bCards" [card]="card" [class.active]="selectedCard === card" [disabled]="game.turn === 'a'" (action)="selectCard(card)"></ogre-card>
   <div class="watermark">♛</div>
 </div>
 
 <div class="spare-card">
-  <ogre-card [card]="game.spareCard" [disabled]="true"></ogre-card>
+  <ogre-card [card]="spareCard" [disabled]="true"></ogre-card>
 </div>
 
-<div class="grid" [class.active]="game.aSelectedCard !== undefined || game.bSelectedCard !== undefined">
-  <button *ngFor="let cell of game.grid" class="cell" type="button" [style.grid-column]="cell.x + 1" [style.grid-row]="cell.y + 1">
-    <div *ngIf="cell.occupant !== undefined" class="occupant">
-      <div *ngIf="cell.occupant!.side === 'a'">
-        {{cell.occupant!.isMain === true ? '♔' : '♙' }}
-      </div>
-      <div *ngIf="cell.occupant!.side === 'b'">
-        {{cell.occupant!.isMain === true ? '♚' : '♟' }}
-      </div>
-    </div>
-    <div *ngIf="cell.victory" class="watermark">
-      {{cell.victory === 'a' ? '♔' : '♚' }}
-    </div>
-  </button>
+<div class="grid" [class.active]="selectedCard !== undefined">
+  <ogre-cell *ngFor="let cell of game.cells" [active]="cell === selectedCell" [cell]="cell" [disabled]="cell.occupant?.side !== game.turn || targetCells.includes(cell) === false" [isTarget]="targetCells.includes(cell) === true" [style.grid-column]="cell.x + 1" [style.grid-row]="cell.y + 1" (click)="selectCell(cell)"></ogre-cell>
 </div>
