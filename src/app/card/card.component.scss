@@ -4,16 +4,21 @@ button {
   border: 1px solid black;
   display: flex;
   align-items: center;
+  border-radius: 0.5em;
+
+  &.is-active {
+    box-shadow: 0 0 1em black;
+  }
 }
 
 .icon {
-  padding-left: 1em;
   font-size: 1.5em;
 }
 
 .grid {
   width: 5em;
   height: 5em;
+  margin-right: 1em;
   display: grid;
   grid-gap: 1px;
   background-color: black;
@@ -27,5 +32,15 @@ button {
     &.center {
       background-color: grey;
     }
+  }
+}
+
+@media (orientation: landscape) {
+  .rotate-90 {
+    transform: rotate(90deg);
+  }
+
+  .rotate-270 {
+    transform: rotate(270deg);
   }
 }

@@ -10,6 +10,7 @@ import { Card } from '../card.interface';
 export class CardComponent implements OnChanges {
   @Input() card!: Card;
   @Input() disabled = false;
+  @Input() isActive = false;
 
   @Output() action = new EventEmitter();
 

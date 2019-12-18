@@ -1,8 +1,8 @@
-<button type="button" [disabled]="disabled" [title]="card.name" (click)="action.emit()">
+<button type="button" [class.is-active]="isActive === true" [class.rotate-90]="card.side === 'a'" [class.rotate-270]="card.side === 'b'" [disabled]="disabled" [title]="card.name" (click)="action.emit()">
   <div class="grid">
     <div *ngFor="let cell of grid" class="cell" [class.active]="cell.isActive === true" [class.center]="cell.isCenter === true" [style.grid-column]="cell.x + 1" [style.grid-row]="cell.y + 1"></div>
   </div>
-  <div class="icon">
+  <div class="icon" [class.rotate-90]="card.side === 'b'" [class.rotate-270]="card.side === 'a'">
     {{card.icon}}
   </div>
 </button>

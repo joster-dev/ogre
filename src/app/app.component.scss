@@ -18,9 +18,9 @@
       "gd gd gd"
       "gd gd gd"
       "gd gd gd"
-      "bc bc bc"
+      "ac ac ac"
       "sc sc sc"
-      "ac ac ac";
+      "bc bc bc";
   }
 }
 
@@ -36,7 +36,8 @@
   position: relative;
 
   margin: 1em;
-  border: 1px solid black;
+  border: 1px solid lightgrey;
+  border-radius: 0.5em;
   @media (orientation: landscape) {
     flex-direction: column;
   }

@@ -38,7 +38,6 @@ export class AppComponent {
   }
 
   selectCell(cell: Cell): void {
-    // debugger;
     if (this.selectedCard !== undefined && this.selectedCell !== undefined && this.targetCells.includes(cell) === true) {
       switch (this.game.play({
         card: this.selectedCard,
@@ -46,10 +45,10 @@ export class AppComponent {
         target: cell
       })) {
         case true:
-          // debugger;
+          alert(`${this.game.turn} wins`);
+          this.game = new Game();
           return;
         default:
-          // debugger;
           this.selectedCard = undefined;
           this.selectedCell = undefined;
       }
