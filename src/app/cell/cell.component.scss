@@ -17,7 +17,8 @@
     align-items: center;
     justify-content: center;
     user-select: none;
-    outline: none;
+    pointer-events: none;
+    overflow: hidden;
   }
 }
 
