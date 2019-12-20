@@ -10,4 +10,5 @@
   <div *ngIf="cell.victory" class="watermark">
     {{cell.victory === 'a' ? '♔' : '♚' }}
   </div>
+  <div *ngIf="isTarget === true" class="target-bg"></div>
 </button>
