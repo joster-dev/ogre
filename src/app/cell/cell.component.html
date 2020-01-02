@@ -1,10 +1,10 @@
 <button class="cell" type="button" [class.active]="active === true" [class.accent]="(cell.x + cell.y) % 2 === 0" [class.is-target]="isTarget === true" [disabled]="disabled === true">
   <div *ngIf="cell.occupant !== undefined" class="occupant">
-    <div *ngIf="cell.occupant!.side === 'a'">
-      {{cell.occupant!.isMain === true ? '♔' : '♙' }}
+    <div *ngIf="cell.occupant!.isMain === true" title="Main Pawn">
+      {{cell.occupant!.side === 'a' ? '♔' : '♚'}}
     </div>
-    <div *ngIf="cell.occupant!.side === 'b'">
-      {{cell.occupant!.isMain === true ? '♚' : '♟' }}
+    <div *ngIf="cell.occupant!.isMain === false" title="Pawn">
+      {{cell.occupant!.side === 'a' ? '♙' : '♟'}}
     </div>
   </div>
   <div *ngIf="cell.victory" class="watermark">
