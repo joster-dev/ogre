@@ -18,9 +18,9 @@
       "gd gd gd"
       "gd gd gd"
       "gd gd gd"
-      "ac ac ac"
-      "sc sc sc"
-      "bc bc bc";
+      "ac sc bc"
+      "ac sc bc"
+      "ac sc bc";
   }
 }
 
@@ -38,9 +38,7 @@
   margin: 1em;
   border: 1px solid lightgrey;
   border-radius: 0.5em;
-  @media (orientation: landscape) {
-    flex-direction: column;
-  }
+  flex-direction: column;
 
   .watermark {
     position: absolute;
