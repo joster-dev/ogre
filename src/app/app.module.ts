@@ -1,18 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { FormControlModule } from '@joster/form-control';
 
 import { AppComponent } from './app.component';
-import { CardComponent } from './card/card.component';
-import { CellComponent } from './cell/cell.component';
+import { GameModule } from './game/game.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CardComponent,
-    CellComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormControlModule,
+    FormsModule,
+    GameModule
   ],
   providers: [],
   bootstrap: [AppComponent]
