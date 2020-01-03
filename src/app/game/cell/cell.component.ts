@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Cell } from '../cell';
+import { Cell } from '../../models';
 
 @Component({
   selector: 'ogre-cell[cell]',
@@ -15,8 +15,4 @@ export class CellComponent {
   @Input() isTarget = false;
 
   constructor() { }
-
-  // get isDisabled() {
-  //   return this.isTarget === false && this.cell.occupant !== undefined && this.cell.occupant.side
-  // }
 }

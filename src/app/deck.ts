@@ -1,4 +1,4 @@
-import { Card } from './card.interface';
+import { Card } from './models';
 
 export const DECK: Card[] = [
   {

@@ -2,17 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CardComponent } from './card/card.component';
-import { CellComponent } from './cell/cell.component';
+import { GameModule } from './game/game.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CardComponent,
-    CellComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    GameModule
   ],
   providers: [],
   bootstrap: [AppComponent]

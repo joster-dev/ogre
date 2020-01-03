@@ -1,6 +1,5 @@
 import { Cell } from './cell';
-import { DECK } from './deck';
-import { Pawn } from './pawn';
+import { DECK } from '../deck';
 import { Card } from './card.interface';
 import { Move } from './move.interface';
 

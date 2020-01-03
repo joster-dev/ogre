@@ -1,17 +1,4 @@
-<div class="a-cards" [class.active]="game.turn === 'a' && this.selectedCard === undefined">
-  <ogre-card *ngFor="let card of aCards" [card]="card" [isActive]="selectedCard === card" [disabled]="game.turn === 'b'" (action)="selectCard(card)"></ogre-card>
-  <div class="watermark">♕</div>
-</div>
-
-<div class="b-cards" [class.active]="game.turn === 'b' && this.selectedCard === undefined">
-  <ogre-card *ngFor="let card of bCards" [card]="card" [isActive]="selectedCard === card" [disabled]="game.turn === 'a'" (action)="selectCard(card)"></ogre-card>
-  <div class="watermark">♛</div>
-</div>
-
-<div class="spare-card">
-  <ogre-card [card]="spareCard" [disabled]="true"></ogre-card>
-</div>
-
-<div class="grid" [class.active]="selectedCard !== undefined">
-  <ogre-cell *ngFor="let cell of game.cells" [active]="cell === selectedCell" [cell]="cell" [isTarget]="targetCells.includes(cell) === true" [style.grid-column]="cell.x + 1" [style.grid-row]="cell.y + 1" (click)="selectCell(cell)"></ogre-cell>
-</div>
+<ogre-game></ogre-game>
+<footer>
+  Jimmeh
+</footer>

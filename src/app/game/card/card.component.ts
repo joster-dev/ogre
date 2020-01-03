@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
-import { Card } from '../card.interface';
+import { Card } from '../../models';
 
 
 @Component({
