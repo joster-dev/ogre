@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Card, Cell, Game } from '../models';
 
 @Component({
@@ -7,6 +7,9 @@ import { Card, Cell, Game } from '../models';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent {
+  @Input() isBotEnabled = false;
+  @Input() isBotGoFirst = false;
+
   game = new Game();
 
   selectedCard?: Card;
@@ -45,16 +48,31 @@ export class GameComponent {
         case true:
           alert(`${this.game.turn} wins`);
           this.game = new Game();
+          this.botPlay();
           return;
         default:
           this.selectedCard = undefined;
           this.selectedCell = undefined;
+          this.botPlay();
       }
       return;
     }
     if (cell.occupant !== undefined && cell.occupant.side !== this.game.turn) throw new Error('opponent cell');
     if (cell.occupant === undefined && this.selectCell === undefined) throw new Error('empty cell');
     this.selectedCell = cell === this.selectedCell ? undefined : cell;
+  }
 
+  private botPlay() {
+    if (this.isBotEnabled === false) return;
+
+    if ((this.isBotGoFirst === true && this.game.turn === 'a') || (this.isBotGoFirst === false && this.game.turn === 'b')) {
+      switch (this.game.play(this.game.moves[Math.floor(Math.random() * this.game.moves.length)])) {
+        case true:
+          alert(`${this.game.turn} wins`);
+          this.game = new Game();
+          this.botPlay();
+          return;
+      }
+    }
   }
 }

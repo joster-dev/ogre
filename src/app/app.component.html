@@ -1,14 +1,22 @@
-<ogre-game></ogre-game>
+<ogre-game [isBotEnabled]="isBotEnabled"></ogre-game>
 <footer>
   <form>
     <fieldset>
       <legend>Options</legend>
-      <!-- concede button -->
+      <fc-button>
+        Concede
+      </fc-button>
     </fieldset>
     <br />
     <fieldset>
       <legend>Bot Options</legend>
-      <!-- enabled, search depth -->
+      <fc-toggle [(ngModel)]="isBotEnabled" name="isBotEnabled">
+        Enabled
+      </fc-toggle>
+      <fc-toggle [(ngModel)]="isBotGoFirst" name="isBotGoFirst">
+        Goes First
+      </fc-toggle>
+      <!-- search depth - number input -->
     </fieldset>
   </form>
 </footer>
