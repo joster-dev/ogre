@@ -6,7 +6,7 @@ export class Cell {
 
   constructor(public readonly x: number, public readonly y: number) {
     if (x === 0) {
-      this.occupant = new Pawn('a', y === 2)
+      this.occupant = new Pawn('a', y === 2);
       if (y === 2) {
         this.victory = 'a';
       }
