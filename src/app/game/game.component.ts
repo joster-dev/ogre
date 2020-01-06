@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Card, Cell, Game } from '../models';
+import { Card, Cell, Form, Game } from '../models';
 
 @Component({
   selector: 'ogre-game',
@@ -11,6 +11,7 @@ export class GameComponent {
   @Input() isBotGoFirst = false;
 
   game = new Game();
+  form = new Form();
 
   selectedCard?: Card;
   selectedCell?: Cell;
@@ -32,6 +33,10 @@ export class GameComponent {
       .filter(move => this.selectedCard === undefined || move.card === this.selectedCard)
       .filter(move => this.selectedCell === undefined || move.source === this.selectedCell)
       .map(move => move.target);
+  }
+
+  newGame() {
+    this.game = new Game();
   }
 
   selectCard(card: Card): void {

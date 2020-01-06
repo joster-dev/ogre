@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from './card/card.component';
 import { CellComponent } from './cell/cell.component';
 import { GameComponent } from './game.component';
+import { FormModule } from './form/form.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { GameComponent } from './game.component';
     GameComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormModule
   ],
   exports: [
     GameComponent

@@ -2,10 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'ogre-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: '<ogre-game></ogre-game>'
 })
-export class AppComponent {
-  isBotEnabled = false;
-  isBotGoFirst = false;
-}
+export class AppComponent { }

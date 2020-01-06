@@ -1,5 +1,5 @@
 import { Cell } from './cell';
-import { DECK } from '../deck';
+import { DECK } from '../deck.const';
 import { Card } from './card.interface';
 import { Move } from './move.interface';
 
@@ -11,11 +11,11 @@ export class Game {
   constructor() {
     this.cells = this.createGrid();
 
-    const deck = DECK;
+    const deck = [...DECK];
 
     this.shuffle(deck);
 
-    let topCard = deck.pop();
+    let topCard;
 
     for (let i = 0; i < 5; i++) {
       topCard = deck.pop();
