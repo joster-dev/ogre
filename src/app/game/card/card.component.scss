@@ -1,13 +1,20 @@
 button {
   background-color: white;
   padding: 1em;
-  border: 1px solid black;
+  border-width: medium;
+  border-color: lightgrey;
+  border-radius: 0.5em;
   display: flex;
   align-items: center;
-  border-radius: 0.5em;
+  cursor: pointer;
 
   &.is-active {
     box-shadow: 0 0 1em black;
+  }
+
+  &:disabled {
+    border-style: solid;
+    cursor: not-allowed;
   }
 }
 
