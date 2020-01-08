@@ -1,32 +1,9 @@
 import { Cell } from './cell';
-import { DECK } from '../deck.const';
 import { Card } from './card.interface';
 import { Move } from './move.interface';
 
 export class Game {
-  cells: Cell[] = [];
-  turn: 'a' | 'b' = 'a';
-  cards: Card[] = [];
-
-  constructor() {
-    this.cells = this.createGrid();
-
-    const deck = [...DECK];
-
-    this.shuffle(deck);
-
-    let topCard;
-
-    for (let i = 0; i < 5; i++) {
-      topCard = deck.pop();
-      if (topCard === undefined) throw new Error('deck built incorrectly');
-      topCard.side = i === 0
-        ? undefined
-        : i % 2 === 0
-          ? 'a' : 'b';
-      this.cards.push(topCard);
-    }
-  }
+  constructor(public cells: Cell[], public cards: Card[], public turn: 'a' | 'b' = 'a') { }
 
   play(move: Move): boolean {
     if (move.target.occupant !== undefined && move.target.occupant.isMain === true) return true;
@@ -71,20 +48,5 @@ export class Game {
       }, []);
   }
 
-  private createGrid(): Cell[] {
-    const temp: Cell[] = [];
-    for (let x = 0; x < 5; x++) {
-      for (let y = 0; y < 5; y++) {
-        temp.push(new Cell(x, y));
-      }
-    }
-    return temp;
-  }
 
-  private shuffle(array: any[]) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-  }
 }

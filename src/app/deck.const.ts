@@ -4,6 +4,7 @@ export const DECK: Card[] = [
   {
     name: 'Badger',
     icon: '🦡',
+    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: 2, y: 1 },
@@ -13,6 +14,7 @@ export const DECK: Card[] = [
   {
     name: 'Bear',
     icon: '🐻',
+    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: 0, y: 1 },
@@ -22,6 +24,7 @@ export const DECK: Card[] = [
   {
     name: 'Boar',
     icon: '🐗',
+    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: -1, y: 0 },
@@ -31,6 +34,7 @@ export const DECK: Card[] = [
   {
     name: 'Crab',
     icon: '🦀',
+    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: -2, y: 0 },
@@ -40,6 +44,7 @@ export const DECK: Card[] = [
   {
     name: 'Crocodile',
     icon: '🐊',
+    isActive: true,
     moves: [
       { x: -2, y: 0 },
       { x: -1, y: -1 },
@@ -49,6 +54,7 @@ export const DECK: Card[] = [
   {
     name: 'Dog',
     icon: '🐕',
+    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: -1, y: 0 },
@@ -58,6 +64,7 @@ export const DECK: Card[] = [
   {
     name: 'Dolphin',
     icon: '🐬',
+    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 0 },
@@ -67,6 +74,7 @@ export const DECK: Card[] = [
   {
     name: 'Dragon',
     icon: '🐉',
+    isActive: true,
     moves: [
       { x: -2, y: 1 },
       { x: 2, y: 1 },
@@ -77,6 +85,7 @@ export const DECK: Card[] = [
   {
     name: 'Duck',
     icon: '🦆',
+    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: -1, y: -1 },
@@ -86,6 +95,7 @@ export const DECK: Card[] = [
   {
     name: 'Eagle',
     icon: '🦅',
+    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 1 },
@@ -95,6 +105,7 @@ export const DECK: Card[] = [
   {
     name: 'Elephant',
     icon: '🐘',
+    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 1 },
@@ -105,6 +116,7 @@ export const DECK: Card[] = [
   {
     name: 'Fox',
     icon: '🦊',
+    isActive: true,
     moves: [
       { x: 1, y: 1 },
       { x: 1, y: 0 },
@@ -114,6 +126,7 @@ export const DECK: Card[] = [
   {
     name: 'Frog',
     icon: '🐸',
+    isActive: true,
     moves: [
       { x: -2, y: 0 },
       { x: -1, y: 1 },
@@ -123,6 +136,7 @@ export const DECK: Card[] = [
   {
     name: 'Giraffe',
     icon: '🦒',
+    isActive: true,
     moves: [
       { x: -2, y: 1 },
       { x: 2, y: 1 },
@@ -132,6 +146,7 @@ export const DECK: Card[] = [
   {
     name: 'Horse',
     icon: '🐎',
+    isActive: true,
     moves: [
       { x: -1, y: 0 },
       { x: 0, y: 1 },
@@ -141,6 +156,7 @@ export const DECK: Card[] = [
   {
     name: 'Kangaroo',
     icon: '🦘',
+    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: -1 },
@@ -150,6 +166,7 @@ export const DECK: Card[] = [
   {
     name: 'Lizard',
     icon: '🦎',
+    isActive: true,
     moves: [
       { x: -2, y: 0 },
       { x: 0, y: 1 },
@@ -159,6 +176,7 @@ export const DECK: Card[] = [
   {
     name: 'Monkey',
     icon: '🐒',
+    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 1 },
@@ -169,6 +187,7 @@ export const DECK: Card[] = [
   {
     name: 'Mouse',
     icon: '🐁',
+    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: 1, y: 0 },
@@ -178,6 +197,7 @@ export const DECK: Card[] = [
   {
     name: 'Octopus',
     icon: '🐙',
+    isActive: true,
     moves: [
       { x: -2, y: 0 },
       { x: -1, y: 1 },
@@ -188,6 +208,7 @@ export const DECK: Card[] = [
   {
     name: 'Ox',
     icon: '🐂',
+    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: 0, y: -1 },
@@ -197,6 +218,7 @@ export const DECK: Card[] = [
   {
     name: 'Panda',
     icon: '🐼',
+    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: 1, y: 1 },
@@ -206,6 +228,7 @@ export const DECK: Card[] = [
   {
     name: 'Rabbit',
     icon: '🐇',
+    isActive: true,
     moves: [
       { x: -1, y: -1 },
       { x: 1, y: 1 },
@@ -215,6 +238,7 @@ export const DECK: Card[] = [
   {
     name: 'Rat',
     icon: '🐀',
+    isActive: true,
     moves: [
       { x: -1, y: 0 },
       { x: 0, y: 1 },
@@ -224,6 +248,7 @@ export const DECK: Card[] = [
   {
     name: 'Rooster',
     icon: '🐓',
+    isActive: true,
     moves: [
       { x: -1, y: 0 },
       { x: -1, y: -1 },
@@ -234,6 +259,7 @@ export const DECK: Card[] = [
   {
     name: 'Shark',
     icon: '🦈',
+    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: 2, y: 0 },
@@ -243,6 +269,7 @@ export const DECK: Card[] = [
   {
     name: 'Snake',
     icon: '🐍',
+    isActive: true,
     moves: [
       { x: -1, y: 0 },
       { x: 1, y: 1 },
@@ -252,6 +279,7 @@ export const DECK: Card[] = [
   {
     name: 'Spider',
     icon: '🕷',
+    isActive: true,
     moves: [
       { x: -2, y: 1 },
       { x: 0, y: 1 },
@@ -261,6 +289,7 @@ export const DECK: Card[] = [
   {
     name: 'Swan',
     icon: '🦢',
+    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: -1, y: 0 },
@@ -271,6 +300,7 @@ export const DECK: Card[] = [
   {
     name: 'Tiger',
     icon: '🐅',
+    isActive: true,
     moves: [
       { x: 0, y: 2 },
       { x: 0, y: -1 }
@@ -279,6 +309,7 @@ export const DECK: Card[] = [
   {
     name: 'Turtle',
     icon: '🐢',
+    isActive: false,
     moves: [
       { x: -2, y: 0 },
       { x: -1, y: -1 },
@@ -289,6 +320,7 @@ export const DECK: Card[] = [
   {
     name: 'Unicorn',
     icon: '🦄',
+    isActive: false,
     moves: [
       { x: -1, y: 2 },
       { x: 1, y: 2 },

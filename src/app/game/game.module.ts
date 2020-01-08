@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CardComponent } from './card/card.component';
+// import { CardComponent } from './card/card.component';
 import { CellComponent } from './cell/cell.component';
 import { GameComponent } from './game.component';
 import { FormModule } from './form/form.module';
 
 @NgModule({
   declarations: [
-    CardComponent,
     CellComponent,
     GameComponent
   ],

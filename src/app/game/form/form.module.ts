@@ -5,10 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { FormControlModule } from '@joster/form-control';
 
 import { FormComponent } from './form.component';
+import { DeckComponent } from './deck/deck.component';
+import { CardComponent } from '../card/card.component';
 
 @NgModule({
   declarations: [
-    FormComponent
+    FormComponent,
+    DeckComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +20,8 @@ import { FormComponent } from './form.component';
     FormsModule
   ],
   exports: [
-    FormComponent
+    FormComponent,
+    CardComponent
   ]
 })
 export class FormModule { }

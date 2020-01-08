@@ -6,7 +6,6 @@ button {
   border-radius: 0.5em;
   display: flex;
   align-items: center;
-  cursor: pointer;
 
   &.is-active {
     box-shadow: 0 0 1em black;
@@ -14,7 +13,9 @@ button {
 
   &:disabled {
     border-style: solid;
-    cursor: not-allowed;
+  }
+  &:not(:disabled) {
+    cursor: pointer;
   }
 }
 

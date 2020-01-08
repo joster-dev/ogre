@@ -1,0 +1,4 @@
+<label *ngFor="let card of model">
+  <input type="checkbox" [(ngModel)]="card.isActive" />
+  <ogre-card [card]="card" [disabled]="true"></ogre-card>
+</label>

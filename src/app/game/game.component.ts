@@ -10,11 +10,15 @@ export class GameComponent {
   @Input() isBotEnabled = false;
   @Input() isBotGoFirst = false;
 
-  game = new Game();
+  game!: Game;
   form = new Form();
 
   selectedCard?: Card;
   selectedCell?: Cell;
+
+  constructor() {
+    this.newGame();
+  }
 
   get aCards() {
     return this.game.cards.filter(card => card.side === 'a');
@@ -36,7 +40,23 @@ export class GameComponent {
   }
 
   newGame() {
-    this.game = new Game();
+    const deck = JSON.parse(JSON.stringify(this.form.deck.filter(card => card.isActive === true)));
+    const cards = [];
+
+    this.shuffle(deck);
+
+    let topCard;
+
+    for (let i = 0; i < 5; i++) {
+      topCard = deck.pop();
+      if (topCard === undefined) throw new Error('deck built incorrectly');
+      topCard.side = i === 0
+        ? undefined
+        : i % 2 === 0
+          ? 'a' : 'b';
+      cards.push(topCard);
+    }
+    this.game = new Game(this.createGrid(), cards);
   }
 
   selectCard(card: Card): void {
@@ -52,7 +72,7 @@ export class GameComponent {
       })) {
         case true:
           alert(`${this.game.turn} wins`);
-          this.game = new Game();
+          this.newGame();
           this.botPlay();
           return;
         default:
@@ -74,10 +94,27 @@ export class GameComponent {
       switch (this.game.play(this.game.moves[Math.floor(Math.random() * this.game.moves.length)])) {
         case true:
           alert(`${this.game.turn} wins`);
-          this.game = new Game();
+          this.newGame();
           this.botPlay();
           return;
       }
+    }
+  }
+
+  private createGrid(): Cell[] {
+    const temp: Cell[] = [];
+    for (let x = 0; x < 5; x++) {
+      for (let y = 0; y < 5; y++) {
+        temp.push(new Cell(x, y));
+      }
+    }
+    return temp;
+  }
+
+  private shuffle(array: any[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
   }
 }
