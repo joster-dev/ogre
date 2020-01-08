@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { FormControlModule } from '@joster/form-control';
+
 import { FormComponent } from './form.component';
 
 @NgModule({
@@ -10,8 +12,8 @@ import { FormComponent } from './form.component';
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    FormControlModule
+    FormControlModule,
+    FormsModule
   ],
   exports: [
     FormComponent
