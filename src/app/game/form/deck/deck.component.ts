@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Card } from 'src/app/models';
 
@@ -10,5 +10,17 @@ import { Card } from 'src/app/models';
 export class DeckComponent {
   @Input() model: Card[] = [];
 
+  @Output() changeCardIsActive = new EventEmitter();
+
   constructor() { }
+
+  get countActiveCards() {
+    return this.model.filter(card => card.isActive === true).length;
+  }
+
+  changeCard(card: Card, isActive: boolean) {
+    if (this.countActiveCards <= 5) return;
+    card.isActive = isActive;
+    this.changeCardIsActive.emit();
+  }
 }

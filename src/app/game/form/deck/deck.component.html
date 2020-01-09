@@ -1,4 +1,4 @@
-<label *ngFor="let card of model">
-  <input type="checkbox" [(ngModel)]="card.isActive" />
+<div *ngFor="let card of model">
+  <fc-toggle [ngModel]="card.isActive" (ngModelChange)="changeCard(card, $event)" [disabled]="countActiveCards <= 5 && card.isActive === true"></fc-toggle>
   <ogre-card [card]="card" [disabled]="true"></ogre-card>
-</label>
+</div>

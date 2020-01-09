@@ -25,6 +25,6 @@
     <legend title="Deck Settings">
       🎴 ⚙️
     </legend>
-    <ogre-deck [model]="model.deck"></ogre-deck>
+    <ogre-deck [model]="model.deck" (changeCardIsActive)="restartSubject.next()"></ogre-deck>
   </fieldset>
 </form>
