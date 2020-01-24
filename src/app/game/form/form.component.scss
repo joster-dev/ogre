@@ -5,4 +5,8 @@ form {
     border: 1px solid lightgrey;
     border-radius: 0.5em;
   }
+  #bot {
+    display: flex;
+    justify-content: space-between;
+  }
 }

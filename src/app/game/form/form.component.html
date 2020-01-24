@@ -12,13 +12,14 @@
     <legend title="Bot Settings">
       🤖 ⚙️
     </legend>
-    <fc-toggle [(ngModel)]="model.isBotEnabled" (ngModelChange)="restartSubject.next()" name="isBotEnabled">
-      Enabled
-    </fc-toggle>
-    <!-- <fc-toggle [(ngModel)]="isBotGoFirst" name="isBotGoFirst">
-      Goes First
-    </fc-toggle> -->
-    <!-- search depth - number input -->
+    <div id="bot">
+      <fc-toggle [(ngModel)]="model.isBotEnabled" (ngModelChange)="restartSubject.next()" name="isBotEnabled">
+        Enabled
+      </fc-toggle>
+      <fc-toggle [(ngModel)]="model.isBotFirst" name="isBotFirst">
+        First
+      </fc-toggle>
+    </div>
   </fieldset>
   <br />
   <fieldset>
