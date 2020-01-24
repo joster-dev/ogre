@@ -13,10 +13,10 @@
       🤖 ⚙️
     </legend>
     <div id="bot">
-      <fc-toggle [(ngModel)]="model.isBotEnabled" (ngModelChange)="restartSubject.next()" name="isBotEnabled">
+      <fc-toggle [(ngModel)]="model.isBotEnabled" name="isBotEnabled" (ngModelChange)="restartSubject.next()">
         Enabled
       </fc-toggle>
-      <fc-toggle [(ngModel)]="model.isBotFirst" name="isBotFirst">
+      <fc-toggle [(ngModel)]="model.isBotFirst" name="isBotFirst" [disabled]="model.isBotEnabled === false" (ngModelChange)="restartSubject.next()">
         First
       </fc-toggle>
     </div>
