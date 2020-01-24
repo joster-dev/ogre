@@ -10,7 +10,7 @@
   <br />
   <fieldset>
     <legend title="Bot Settings">
-      🤖 ⚙️
+      ⚙️ 🤖
     </legend>
     <div id="bot">
       <fc-toggle [(ngModel)]="model.isBotEnabled" name="isBotEnabled" (ngModelChange)="restartSubject.next()">
@@ -24,7 +24,7 @@
   <br />
   <fieldset id="deck-fieldset">
     <legend title="Deck Settings">
-      🎴 ⚙️
+      ⚙️ 🎴
     </legend>
     <ogre-deck [model]="model.deck" (changeCardIsActive)="restartSubject.next()"></ogre-deck>
   </fieldset>
