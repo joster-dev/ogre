@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Cell } from '../../models';
 
 @Component({
@@ -8,11 +8,12 @@ import { Cell } from '../../models';
 })
 export class CellComponent {
   @Input() cell!: Cell;
-  // @Input() gameTurn: 'a' | 'b';
 
   @Input() active = false;
   @Input() disabled = false;
   @Input() isTarget = false;
+
+  @Output() action = new EventEmitter();
 
   constructor() { }
 }

@@ -21,7 +21,7 @@
   </ng-template>
 
   <div class="grid" [class.active]="selectedCard !== undefined">
-    <ogre-cell *ngFor="let cell of game.cells" [active]="cell === selectedCell" [cell]="cell" [isTarget]="targetCells.includes(cell) === true" [style.grid-column]="cell.x + 1" [style.grid-row]="cell.y + 1" (click)="selectCell(cell)"></ogre-cell>
+    <ogre-cell *ngFor="let cell of game.cells" [active]="cell === selectedCell" [cell]="cell" [disabled]="isCellDisabled(cell)" [isTarget]="targetCells.includes(cell) === true" [style.grid-column]="cell.x + 1" [style.grid-row]="cell.y + 1" (action)="selectCell(cell)"></ogre-cell>
   </div>
 </section>
 

@@ -36,6 +36,14 @@ export class GameComponent {
       .map(move => move.target);
   }
 
+  isCellDisabled(cell: Cell): boolean {
+    if (this.selectedCard !== undefined && this.selectedCell !== undefined && this.selectedCell !== cell) {
+      return this.targetCells.includes(cell) === false;
+    }
+
+    return cell.occupant === undefined || cell.occupant.side !== this.game.turn;
+  }
+
   newGame() {
     const deck = JSON.parse(JSON.stringify(this.form.deck.filter(card => card.isActive === true)));
     const cards = [];
