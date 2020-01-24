@@ -1,5 +1,22 @@
 form {
-  margin: 1em;
+  margin: auto;
+  padding: 1em 0;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
   fieldset {
     padding: 1em;
     border: 1px solid lightgrey;
@@ -8,5 +25,8 @@ form {
   #bot {
     display: flex;
     justify-content: space-between;
+  }
+  #deck-fieldset {
+    min-width: 0;
   }
 }
