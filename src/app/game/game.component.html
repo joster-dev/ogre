@@ -15,9 +15,9 @@
     <ng-container *ngTemplateOutlet="arrow"></ng-container>
   </div>
   <ng-template #arrow>
-    <div class="arrow" title="{{spareCard?.name}} goes {{game.turn === 'a' ? 'Left' : 'Right'}}">
+    <span class="arrow" title="{{spareCard?.name}} goes {{game.turn === 'a' ? 'Left' : 'Right'}}">
       {{game.turn === 'a' ? '👈' : '👉'}}
-    </div>
+    </span>
   </ng-template>
 
   <div class="grid" [class.active]="selectedCard !== undefined">
