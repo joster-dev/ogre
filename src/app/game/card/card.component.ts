@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnChanges, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Card } from '../../models';
 
 
@@ -18,8 +18,10 @@ export class CardComponent implements OnChanges {
 
   constructor() { }
 
-  ngOnChanges() {
-    this.createGrid();
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.card) {
+      this.createGrid();
+    }
   }
 
   private createGrid() {
