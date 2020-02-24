@@ -6,11 +6,14 @@ form {
     padding: 1em;
     border: 1px solid lightgrey;
     border-radius: 0.5em;
+    box-shadow: 0.1em 0.1em 0.2em 0 lightgrey;
   }
+
   #bot {
     display: flex;
     justify-content: space-between;
   }
+
   #deck-fieldset {
     min-width: 0;
   }
