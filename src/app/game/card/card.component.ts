@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Card } from '../../models';
-
+import { GridCard } from './grid-card';
 
 @Component({
   selector: 'ogre-card[card]',
@@ -36,17 +36,5 @@ export class CardComponent implements OnChanges {
       if (targetCell === undefined) throw new Error('card move is incorrect');
       targetCell.isActive = true;
     });
-  }
-
-}
-
-
-class GridCard {
-  isActive = false;
-
-  constructor(public readonly x: number, public readonly y: number) { }
-
-  get isCenter() {
-    return this.x === 2 && this.y === 2;
   }
 }
