@@ -2,7 +2,6 @@
   height: 100vh;
   min-height: 650px;
 
-  background-color: black;
   border-bottom: 1px solid black;
   box-shadow: 0.2em 0.2em 0.2em 0 lightgrey;
   display: grid;
@@ -77,10 +76,8 @@
 .grid {
   grid-area: gd;
   display: grid;
-  grid-gap: 1px;
   grid-auto-rows: minmax(0, 1fr);
   grid-auto-columns: minmax(0, 1fr);
-  background-color: #000;
   border-width: 1px;
   border-color: #000;
   border-bottom-style: solid;
