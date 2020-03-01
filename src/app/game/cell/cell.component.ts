@@ -9,8 +9,8 @@ import { Cell } from '../../models';
 export class CellComponent {
   @Input() cell!: Cell;
 
-  @Input() active = false;
-  @Input() disabled = false;
+  @Input() isActive = false;
+  @Input() isDisabled = false;
   @Input() isTarget = false;
 
   @Output() action = new EventEmitter();

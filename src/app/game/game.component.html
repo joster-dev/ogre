@@ -1,30 +1,69 @@
 <section id="game">
-  <div class="a-cards" [class.active]="game.turn === 'a' && this.selectedCard === undefined">
-    <ogre-card *ngFor="let card of aCards" [card]="card" [isActive]="selectedCard === card" [disabled]="game.turn === 'b'" (action)="selectCard(card)"></ogre-card>
+  <div
+    class="a-cards"
+    [class.active]="game.turn === 'a' && this.selectedCard === undefined"
+  >
+    <ogre-card
+      *ngFor="let card of aCards"
+      [card]="card"
+      [isActive]="selectedCard === card"
+      [isDisabled]="game.turn === 'b'"
+      (action)="selectCard(card)"
+    ></ogre-card>
     <div class="watermark">♕</div>
   </div>
 
-  <div class="b-cards" [class.active]="game.turn === 'b' && this.selectedCard === undefined">
-    <ogre-card *ngFor="let card of bCards" [card]="card" [isActive]="selectedCard === card" [disabled]="game.turn === 'a'" (action)="selectCard(card)"></ogre-card>
+  <div
+    class="b-cards"
+    [class.active]="game.turn === 'b' && this.selectedCard === undefined"
+  >
+    <ogre-card
+      *ngFor="let card of bCards"
+      [card]="card"
+      [isActive]="selectedCard === card"
+      [isDisabled]="game.turn === 'a'"
+      (action)="selectCard(card)"
+    ></ogre-card>
     <div class="watermark">♛</div>
   </div>
 
   <div class="spare-card">
     <ng-container *ngTemplateOutlet="arrow"></ng-container>
-    <ogre-card [card]="spareCard" [disabled]="true"></ogre-card>
+    <ogre-card
+      [card]="spareCard"
+      [isDisabled]="true"
+    ></ogre-card>
     <ng-container *ngTemplateOutlet="arrow"></ng-container>
   </div>
   <ng-template #arrow>
-    <span class="arrow" title="{{spareCard?.name}} goes {{game.turn === 'a' ? 'Left' : 'Right'}}">
+    <span
+      class="arrow"
+      title="{{spareCard?.name}} goes {{game.turn === 'a' ? 'Left' : 'Right'}}"
+    >
       {{game.turn === 'a' ? '👈' : '👉'}}
     </span>
   </ng-template>
 
-  <div class="grid" [class.active]="selectedCard !== undefined">
-    <ogre-cell *ngFor="let cell of game.cells" [active]="cell === selectedCell" [cell]="cell" [disabled]="isCellDisabled(cell)" [isTarget]="targetCells.includes(cell) === true" [style.grid-column]="cell.x + 1" [style.grid-row]="cell.y + 1" (action)="selectCell(cell)"></ogre-cell>
+  <div
+    class="grid"
+    [class.active]="selectedCard !== undefined"
+  >
+    <ogre-cell
+      *ngFor="let cell of game.cells"
+      [cell]="cell"
+      [isActive]="cell === selectedCell"
+      [isDisabled]="isCellDisabled(cell)"
+      [isTarget]="targetCells.includes(cell) === true"
+      [style.grid-column]="cell.x + 1"
+      [style.grid-row]="cell.y + 1"
+      (action)="selectCell(cell)"
+    ></ogre-cell>
   </div>
 </section>
 
 <footer>
-  <ogre-form [model]="form" (restart)="newGame()"></ogre-form>
+  <ogre-form
+    [model]="form"
+    (restart)="newGame()"
+  ></ogre-form>
 </footer>

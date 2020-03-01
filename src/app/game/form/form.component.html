@@ -1,7 +1,7 @@
 <form>
   <fieldset>
     <legend title="Settings">
-      ⚙️
+      ⚙️ Settings ⚙️
     </legend>
     <fc-button (action)="restartSubject.next()">
       Restart
@@ -10,13 +10,22 @@
   <br />
   <fieldset>
     <legend title="Bot Settings">
-      ⚙️ 🤖
+      🤖 Bot Settings ⚙️
     </legend>
     <div id="bot">
-      <fc-toggle [(ngModel)]="model.isBotEnabled" name="isBotEnabled" (ngModelChange)="restartSubject.next()">
+      <fc-toggle
+        [(ngModel)]="model.isBotEnabled"
+        name="isBotEnabled"
+        (ngModelChange)="restartSubject.next()"
+      >
         Enabled
       </fc-toggle>
-      <fc-toggle [(ngModel)]="model.isBotFirst" name="isBotFirst" [disabled]="model.isBotEnabled === false" (ngModelChange)="restartSubject.next()">
+      <fc-toggle
+        [(ngModel)]="model.isBotFirst"
+        name="isBotFirst"
+        [disabled]="model.isBotEnabled === false"
+        (ngModelChange)="restartSubject.next()"
+      >
         First
       </fc-toggle>
     </div>
@@ -24,8 +33,11 @@
   <br />
   <fieldset id="deck-fieldset">
     <legend title="Deck Settings">
-      ⚙️ 🎴
+      🎴 Deck Settings ⚙️
     </legend>
-    <ogre-deck [model]="model.deck" (changeCardIsActive)="restartSubject.next()"></ogre-deck>
+    <ogre-deck
+      [model]="model.deck"
+      (changeCardIsActive)="restartSubject.next()"
+    ></ogre-deck>
   </fieldset>
 </form>

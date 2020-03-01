@@ -1,14 +1,32 @@
-<button type="button" [class.active]="active === true" [class.accent]="(cell.x + cell.y) % 2 === 0" [class.is-target]="isTarget === true" [disabled]="disabled === true" (click)="action.emit()">
+<button
+  type="button"
+  [class.active]="isActive"
+  [class.accent]="(cell.x + cell.y) % 2 === 0"
+  [disabled]="isDisabled"
+  (click)="action.emit()"
+>
   <ng-container *ngIf="cell.occupant !== undefined">
-    <span *ngIf="cell.occupant!.isMain === true" title="Main Pawn">
+    <span
+      *ngIf="cell.occupant!.isMain === true"
+      title="Main Pawn"
+    >
       {{cell.occupant!.side === 'a' ? '♔' : '♚'}}
     </span>
-    <span *ngIf="cell.occupant!.isMain === false" title="Pawn">
+    <span
+      *ngIf="cell.occupant!.isMain === false"
+      title="Pawn"
+    >
       {{cell.occupant!.side === 'a' ? '♙' : '♟'}}
     </span>
   </ng-container>
-  <div *ngIf="cell.victory" class="watermark">
+  <div
+    *ngIf="cell.victory"
+    class="watermark"
+  >
     {{cell.victory === 'a' ? '♔' : '♚' }}
   </div>
-  <div *ngIf="isTarget === true" class="target-bg"></div>
+  <div
+    *ngIf="isTarget === true"
+    class="target-bg"
+  ></div>
 </button>

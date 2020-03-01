@@ -3,12 +3,14 @@ button {
   height: 100%;
   position: relative;
   background-color: white;
-  border: none;
+  border-width: medium;
+  padding: 0;
   font-size: x-large;
   cursor: pointer;
 
   &:disabled {
     cursor: default;
+    border: none;
   }
 
   .watermark {
@@ -33,7 +35,7 @@ button {
 }
 
 .accent {
-  background-color: #eee;
+  background-color: #f6f6f6;
 }
 
 .target-bg {

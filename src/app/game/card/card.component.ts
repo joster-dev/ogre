@@ -9,7 +9,7 @@ import { GridCard } from './grid-card';
 })
 export class CardComponent implements OnChanges {
   @Input() card!: Card;
-  @Input() disabled = false;
+  @Input() isDisabled = false;
   @Input() isActive = false;
 
   @Output() action = new EventEmitter();
