@@ -78,6 +78,8 @@ export class GameComponent {
       })) {
         case true:
           alert(`${this.game.turn} wins`);
+          this.selectedCard = undefined;
+          this.selectedCell = undefined;
           this.newGame();
           return;
         default:
@@ -87,8 +89,6 @@ export class GameComponent {
       }
       return;
     }
-    if (cell.occupant !== undefined && cell.occupant.side !== this.game.turn) throw new Error('opponent cell');
-    if (cell.occupant === undefined && this.selectCell === undefined) throw new Error('empty cell');
     this.selectedCell = cell === this.selectedCell ? undefined : cell;
   }
 
