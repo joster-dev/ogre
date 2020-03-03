@@ -16,36 +16,47 @@ button {
   &:not(:disabled) {
     cursor: pointer;
   }
-}
 
-.icon {
-  font-size: 1.5em;
-}
+  > .grid {
+    width: 5em;
+    height: 5em;
+    margin-right: 1em;
+    display: grid;
 
-.grid {
-  width: 5em;
-  height: 5em;
-  margin-right: 1em;
-  display: grid;
-  grid-gap: 1px;
-  background-color: black;
-  border: 1px solid black;
+    .cell {
+      background-color: white;
+      position: relative;
+      &.active {
+        background-color: lightgrey;
+      }
+      &.center {
+        background-color: grey;
+      }
 
-  .cell {
-    background-color: white;
-    &.active {
-      background-color: lightgrey;
+      > .target-bg {
+        opacity: 0.2;
+        background: darkblue;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
     }
-    &.center {
-      background-color: grey;
+
+    .accent {
+      background-color: #f6f6f6;
     }
+  }
+
+  > .icon {
+    font-size: 1.5em;
   }
 }
 
 .rotate-90 {
   transform: rotate(90deg);
 }
-
 .rotate-270 {
   transform: rotate(270deg);
 }

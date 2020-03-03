@@ -11,11 +11,16 @@
     <div
       *ngFor="let cell of grid"
       class="cell"
-      [class.active]="cell.isActive"
+      [class.accent]="(cell.x + cell.y) % 2 === 0"
       [class.center]="cell.isCenter"
       [style.grid-column]="cell.x + 1"
       [style.grid-row]="cell.y + 1"
-    ></div>
+    >
+      <div
+        *ngIf="cell.isActive"
+        class="target-bg"
+      ></div>
+    </div>
   </div>
   <div
     class="icon"
