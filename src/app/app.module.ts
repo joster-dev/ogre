@@ -11,7 +11,14 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     GameModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register(
+      'ngsw-worker.js',
+      {
+        enabled: environment.production,
+        scope: './ogre/',
+        registrationStrategy: 'registerImmediately'
+      }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
