@@ -15,7 +15,6 @@ import { environment } from '../environments/environment';
       'ngsw-worker.js',
       {
         enabled: environment.production,
-        scope: './ogre/',
         registrationStrategy: 'registerImmediately'
       }
     )
