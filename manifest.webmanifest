@@ -5,7 +5,7 @@
   "background_color": "#247",
   "display": "standalone",
   "scope": "./ogre/",
-  "start_url": "./ogre/",
+  "start_url": "./",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
