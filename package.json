@@ -2,7 +2,7 @@
   "name": "ogre",
   "version": "0.0.0",
   "scripts": {
-    "ghp-build": "ng build --prod --base-href=https://joster422.github.io/ogre/",
+    "ghp-build": "ng build --prod --base-href=https://joster422.github.io/ogre",
     "ghp-deploy": "git add . && git commit --message=\"chore - gh-pages deploy\" && git push",
     "ghp-remove-old": "git push origin --delete gh-pages",
     "ghp-push": "git subtree push --prefix dist origin gh-pages",
