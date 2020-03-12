@@ -4,8 +4,8 @@
   "theme_color": "#fafafa",
   "background_color": "#247",
   "display": "standalone",
-  "scope": "./",
-  "start_url": "./",
+  "scope": "./ogre/",
+  "start_url": "./ogre/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
