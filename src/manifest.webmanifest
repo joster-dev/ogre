@@ -1,11 +1,11 @@
 {
-  "name": "ogre",
-  "short_name": "ogre",
+  "name": "Ogre Game",
+  "short_name": "Ogre",
   "theme_color": "#fafafa",
   "background_color": "#247",
   "display": "standalone",
-  "scope": "https://joster422.github.io/ogre/",
-  "start_url": "https://joster422.github.io/ogre/",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
