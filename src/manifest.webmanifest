@@ -5,7 +5,7 @@
   "background_color": "#247",
   "display": "standalone",
   "scope": "./ogre/",
-  "start_url": "./ogre/",
+  "start_url": "https://joster422.github.io/ogre/",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
