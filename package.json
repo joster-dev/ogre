@@ -1,6 +1,6 @@
 {
   "name": "ogre",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ghp-build": "ng build --prod --base-href=https://joster422.github.io/ogre/",
     "ghp-deploy": "git add . && git commit --message=\"chore - gh-pages deploy\" && git push",
