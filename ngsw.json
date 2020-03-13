@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1584058235817,
+  "timestamp": 1584058614472,
   "index": "https://joster422.github.io/ogre/index.html",
   "assetGroups": [
     {
@@ -52,7 +52,7 @@
     "https://joster422.github.io/ogre/index.html": "73899288e6c4edfc642102358f479a7061d6d610",
     "https://joster422.github.io/ogre/main-es2015.e8fe3cdcc2d622963387.js": "1370f2cfee0e07a17c05ae517226ee30b9a135c6",
     "https://joster422.github.io/ogre/main-es5.e8fe3cdcc2d622963387.js": "1d4c8abeb28eb8310853eccec1fa5c7ec6c5857a",
-    "https://joster422.github.io/ogre/manifest.webmanifest": "ad4864e79b4936371acdcf9820314e881bc174c7",
+    "https://joster422.github.io/ogre/manifest.webmanifest": "58b40c6c7f5ce2a3fad9851d6f25605098626628",
     "https://joster422.github.io/ogre/polyfills-es2015.442fa3cc45520cc0d518.js": "8779ed8d9bf0580e1b50b352a9b8fd520be24433",
     "https://joster422.github.io/ogre/polyfills-es5.e94ba732172de6683982.js": "29c3dfd16faa921dd49165f318f9eed12a2f3be7",
     "https://joster422.github.io/ogre/runtime-es2015.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
