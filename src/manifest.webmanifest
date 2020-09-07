@@ -2,7 +2,7 @@
   "name": "Ogre Game",
   "short_name": "Ogre",
   "theme_color": "#fafafa",
-  "background_color": "#247",
+  "background_color": "#fafafa",
   "display": "standalone",
   "scope": "https://joster422.github.io/ogre/",
   "start_url": "https://joster422.github.io/ogre/",
