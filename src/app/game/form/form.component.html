@@ -3,7 +3,7 @@
     <legend title="Settings">
       ⚙️ Settings ⚙️
     </legend>
-    <fc-button (action)="restartSubject.next()">
+    <fc-button (clicked)="restartSubject.next()">
       Restart
     </fc-button>
   </fieldset>
@@ -13,21 +13,21 @@
       🤖 Bot Settings ⚙️
     </legend>
     <div id="bot">
-      <fc-toggle
+      <fc-choice
         [(ngModel)]="model.isBotEnabled"
+        label="Active"
         name="isBotEnabled"
+        [items]="activeItems"
         (ngModelChange)="restartSubject.next()"
-      >
-        Enabled
-      </fc-toggle>
+      ></fc-choice>
       <fc-toggle
         [(ngModel)]="model.isBotFirst"
+        label="Order"
         name="isBotFirst"
         [disabled]="model.isBotEnabled === false"
+        [items]="orderItems"
         (ngModelChange)="restartSubject.next()"
-      >
-        First
-      </fc-toggle>
+      ></fc-toggle>
     </div>
   </fieldset>
   <br />
