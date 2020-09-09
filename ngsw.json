@@ -1,23 +1,26 @@
 {
   "configVersion": 1,
-  "timestamp": 1584063635115,
-  "index": "https://joster422.github.io/ogre/index.html",
+  "timestamp": 1599618780428,
+  "index": "https://joster-dev.github.io/ogre/index.html",
   "assetGroups": [
     {
       "name": "app",
       "installMode": "prefetch",
       "updateMode": "lazy",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
       "urls": [
-        "https://joster422.github.io/ogre/favicon.ico",
-        "https://joster422.github.io/ogre/index.html",
-        "https://joster422.github.io/ogre/main-es2015.143d54d9d36f606c2cb0.js",
-        "https://joster422.github.io/ogre/main-es5.143d54d9d36f606c2cb0.js",
-        "https://joster422.github.io/ogre/manifest.webmanifest",
-        "https://joster422.github.io/ogre/polyfills-es2015.442fa3cc45520cc0d518.js",
-        "https://joster422.github.io/ogre/polyfills-es5.e94ba732172de6683982.js",
-        "https://joster422.github.io/ogre/runtime-es2015.0811dcefd377500b5b1a.js",
-        "https://joster422.github.io/ogre/runtime-es5.0811dcefd377500b5b1a.js",
-        "https://joster422.github.io/ogre/styles.d2d221ef1aa047772d2f.css"
+        "https://joster-dev.github.io/ogre/favicon.ico",
+        "https://joster-dev.github.io/ogre/index.html",
+        "https://joster-dev.github.io/ogre/main-es2020.d070479a6dd508fa8cc5.js",
+        "https://joster-dev.github.io/ogre/main-es5.d070479a6dd508fa8cc5.js",
+        "https://joster-dev.github.io/ogre/manifest.webmanifest",
+        "https://joster-dev.github.io/ogre/polyfills-es2020.3eb4283ca820c86b1337.js",
+        "https://joster-dev.github.io/ogre/polyfills-es5.56c46f33e4c5580b836f.js",
+        "https://joster-dev.github.io/ogre/runtime-es2020.41eb3616844b6c96e4f3.js",
+        "https://joster-dev.github.io/ogre/runtime-es5.41eb3616844b6c96e4f3.js",
+        "https://joster-dev.github.io/ogre/styles.59950c7fbf18589c7427.css"
       ],
       "patterns": []
     },
@@ -25,39 +28,42 @@
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
       "urls": [
-        "https://joster422.github.io/ogre/assets/icons/icon-128x128.png",
-        "https://joster422.github.io/ogre/assets/icons/icon-144x144.png",
-        "https://joster422.github.io/ogre/assets/icons/icon-152x152.png",
-        "https://joster422.github.io/ogre/assets/icons/icon-192x192.png",
-        "https://joster422.github.io/ogre/assets/icons/icon-384x384.png",
-        "https://joster422.github.io/ogre/assets/icons/icon-512x512.png",
-        "https://joster422.github.io/ogre/assets/icons/icon-72x72.png",
-        "https://joster422.github.io/ogre/assets/icons/icon-96x96.png"
+        "https://joster-dev.github.io/ogre/assets/icons/icon-128x128.png",
+        "https://joster-dev.github.io/ogre/assets/icons/icon-144x144.png",
+        "https://joster-dev.github.io/ogre/assets/icons/icon-152x152.png",
+        "https://joster-dev.github.io/ogre/assets/icons/icon-192x192.png",
+        "https://joster-dev.github.io/ogre/assets/icons/icon-384x384.png",
+        "https://joster-dev.github.io/ogre/assets/icons/icon-512x512.png",
+        "https://joster-dev.github.io/ogre/assets/icons/icon-72x72.png",
+        "https://joster-dev.github.io/ogre/assets/icons/icon-96x96.png"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://joster422.github.io/ogre/assets/icons/icon-128x128.png": "4faeeb372f2763f9cfd0201acfe032cedcec2a66",
-    "https://joster422.github.io/ogre/assets/icons/icon-144x144.png": "2319c2b6b2982c02fc6e802dc76bd88ad42602f9",
-    "https://joster422.github.io/ogre/assets/icons/icon-152x152.png": "ef6822f99e2add5bfc2470ab9dd2873d24e60229",
-    "https://joster422.github.io/ogre/assets/icons/icon-192x192.png": "8cded99dfbf181226ca5357689de3891b81b51a0",
-    "https://joster422.github.io/ogre/assets/icons/icon-384x384.png": "1a619e3837e5a91e3821664a56d7986791861dc2",
-    "https://joster422.github.io/ogre/assets/icons/icon-512x512.png": "2ab5463145b7d35c14beab1853ab5daaa3340daa",
-    "https://joster422.github.io/ogre/assets/icons/icon-72x72.png": "c646034adca743d75b1c7275b49da25974836d2d",
-    "https://joster422.github.io/ogre/assets/icons/icon-96x96.png": "6906990d969bcad735cfe79d990ba4dc6c454e25",
-    "https://joster422.github.io/ogre/favicon.ico": "11b3cc1b300e4883d4fcef3eca21b88681034350",
-    "https://joster422.github.io/ogre/index.html": "0dc74836c372acf7ef009e9f24a56ee2ff40ebe7",
-    "https://joster422.github.io/ogre/main-es2015.143d54d9d36f606c2cb0.js": "7574f78fa31bd973e4fc8f51f16d242f8df4a22c",
-    "https://joster422.github.io/ogre/main-es5.143d54d9d36f606c2cb0.js": "8bd9d0253ca5fdea9a263cbfc3947d9a77e9dcdd",
-    "https://joster422.github.io/ogre/manifest.webmanifest": "19d7adadebd4f86bcf437eb3b84962876088a9b8",
-    "https://joster422.github.io/ogre/polyfills-es2015.442fa3cc45520cc0d518.js": "8779ed8d9bf0580e1b50b352a9b8fd520be24433",
-    "https://joster422.github.io/ogre/polyfills-es5.e94ba732172de6683982.js": "29c3dfd16faa921dd49165f318f9eed12a2f3be7",
-    "https://joster422.github.io/ogre/runtime-es2015.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "https://joster422.github.io/ogre/runtime-es5.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "https://joster422.github.io/ogre/styles.d2d221ef1aa047772d2f.css": "ec42a9ab96b817408acb37943e09efffede280f9"
+    "https://joster-dev.github.io/ogre/assets/icons/icon-128x128.png": "4faeeb372f2763f9cfd0201acfe032cedcec2a66",
+    "https://joster-dev.github.io/ogre/assets/icons/icon-144x144.png": "2319c2b6b2982c02fc6e802dc76bd88ad42602f9",
+    "https://joster-dev.github.io/ogre/assets/icons/icon-152x152.png": "ef6822f99e2add5bfc2470ab9dd2873d24e60229",
+    "https://joster-dev.github.io/ogre/assets/icons/icon-192x192.png": "8cded99dfbf181226ca5357689de3891b81b51a0",
+    "https://joster-dev.github.io/ogre/assets/icons/icon-384x384.png": "1a619e3837e5a91e3821664a56d7986791861dc2",
+    "https://joster-dev.github.io/ogre/assets/icons/icon-512x512.png": "2ab5463145b7d35c14beab1853ab5daaa3340daa",
+    "https://joster-dev.github.io/ogre/assets/icons/icon-72x72.png": "c646034adca743d75b1c7275b49da25974836d2d",
+    "https://joster-dev.github.io/ogre/assets/icons/icon-96x96.png": "6906990d969bcad735cfe79d990ba4dc6c454e25",
+    "https://joster-dev.github.io/ogre/favicon.ico": "11b3cc1b300e4883d4fcef3eca21b88681034350",
+    "https://joster-dev.github.io/ogre/index.html": "b96b1bb5b03cc1efd5aed8525b02fa7e520e56aa",
+    "https://joster-dev.github.io/ogre/main-es2020.d070479a6dd508fa8cc5.js": "14c082c6c6cc519231c4cd68d37c683af3f29b0d",
+    "https://joster-dev.github.io/ogre/main-es5.d070479a6dd508fa8cc5.js": "f0fc2fd628a1ab873c3692509589cbf90cec4000",
+    "https://joster-dev.github.io/ogre/manifest.webmanifest": "e336fbc781530b37b1f061e82f1fc43a31833c4f",
+    "https://joster-dev.github.io/ogre/polyfills-es2020.3eb4283ca820c86b1337.js": "cad3129c71535baaab25ac06d8429734959b0b3f",
+    "https://joster-dev.github.io/ogre/polyfills-es5.56c46f33e4c5580b836f.js": "ddab36708d3bfe0102402cd9e170eb47c267b9f8",
+    "https://joster-dev.github.io/ogre/runtime-es2020.41eb3616844b6c96e4f3.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://joster-dev.github.io/ogre/runtime-es5.41eb3616844b6c96e4f3.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "https://joster-dev.github.io/ogre/styles.59950c7fbf18589c7427.css": "0d0aaf48b46d4bfc37373c75db4a8b6b18f8fe17"
   },
   "navigationUrls": [
     {
