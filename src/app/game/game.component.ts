@@ -93,9 +93,9 @@ export class GameComponent {
   }
 
   private botPlay() {
-    if (this.form.isBotEnabled === false) return;
+    if (!this.form.isBotEnabled) return;
 
-    if ((this.form.isBotFirst === true && this.game.turn === 'a') || (this.form.isBotFirst === false && this.game.turn === 'b')) {
+    if ((this.form.isBotFirst === true && this.game.turn === 'a') || (!this.form.isBotFirst && this.game.turn === 'b')) {
       switch (this.game.play(this.game.moves[Math.floor(Math.random() * this.game.moves.length)])) {
         case true:
           alert(`${this.game.turn} wins`);

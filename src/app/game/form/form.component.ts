@@ -15,14 +15,6 @@ export class FormComponent implements OnInit, OnDestroy {
   @Output() restart = new EventEmitter();
 
   restartSubject = new Subject();
-  activeItems = [
-    { key: true, value: 'Enabled' },
-    { key: false, value: 'Disabled' }
-  ];
-  orderItems = [
-    { key: true, value: 'First' },
-    { key: false, value: 'Last' }
-  ];
 
   constructor() { }
 

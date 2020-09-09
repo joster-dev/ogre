@@ -75,3 +75,10 @@
   grid-auto-rows: minmax(0, 1fr);
   grid-auto-columns: minmax(0, 1fr);
 }
+
+footer {
+  margin: auto;
+  @media screen {
+    max-width: 720px;
+  }
+}

@@ -1,9 +1,10 @@
 <div *ngFor="let card of model">
-  <fc-toggle
+  <fc-choice
     [ngModel]="card.isActive"
     (ngModelChange)="changeCard(card, $event)"
+    [items]="[{ key: true, value: 'Included' }]"
     [disabled]="countActiveCards <= 5 && card.isActive === true"
-  ></fc-toggle>
+  ></fc-choice>
   <ogre-card
     [card]="card"
     [isDisabled]="true"

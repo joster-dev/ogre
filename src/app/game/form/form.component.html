@@ -15,19 +15,17 @@
     <div id="bot">
       <fc-choice
         [(ngModel)]="model.isBotEnabled"
-        label="Active"
         name="isBotEnabled"
-        [items]="activeItems"
+        [items]="[{ key: true, value: 'Active' }]"
         (ngModelChange)="restartSubject.next()"
       ></fc-choice>
-      <fc-toggle
+      <fc-choice
         [(ngModel)]="model.isBotFirst"
-        label="Order"
         name="isBotFirst"
-        [disabled]="model.isBotEnabled === false"
-        [items]="orderItems"
+        [disabled]="!model.isBotEnabled"
+        [items]="[{ key: true, value: 'Goes First' }]"
         (ngModelChange)="restartSubject.next()"
-      ></fc-toggle>
+      ></fc-choice>
     </div>
   </fieldset>
   <br />

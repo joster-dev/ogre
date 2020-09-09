@@ -309,7 +309,7 @@ export const DECK: Card[] = [
   {
     name: 'Turtle',
     icon: '🐢',
-    isActive: false,
+    isActive: null,
     moves: [
       { x: -2, y: 0 },
       { x: -1, y: -1 },
@@ -320,7 +320,7 @@ export const DECK: Card[] = [
   {
     name: 'Unicorn',
     icon: '🦄',
-    isActive: false,
+    isActive: null,
     moves: [
       { x: -1, y: 2 },
       { x: 1, y: 2 },
