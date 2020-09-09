@@ -18,7 +18,7 @@ export class DeckComponent {
     return this.model.filter(card => card.isActive === true).length;
   }
 
-  changeCard(card: Card, isActive: boolean) {
+  changeCard(card: Card, isActive: true | null) {
     if (this.countActiveCards <= 5) return;
     card.isActive = isActive;
     this.changeCardIsActive.emit();
