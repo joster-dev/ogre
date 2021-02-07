@@ -3,7 +3,11 @@ import { Card } from './card.interface';
 import { Move } from './move.interface';
 
 export class Game {
-  constructor(public cells: Cell[], public cards: Card[], public turn: 'a' | 'b' = 'a') { }
+  constructor(
+    public cells: Cell[],
+    public cards: Card[],
+    public turn: 'a' | 'b' = 'a'
+  ) { }
 
   play(move: Move): boolean {
     if (move.target.occupant !== undefined && move.target.occupant.isMain === true) return true;
@@ -47,6 +51,4 @@ export class Game {
         return [...accumulator, ...newMoves];
       }, []);
   }
-
-
 }
