@@ -5,20 +5,26 @@
   [disabled]="isDisabled"
   (click)="action.emit()"
 >
-  <ng-container *ngIf="cell.occupant !== undefined">
-    <span
+  <div *ngIf="cell.occupant !== undefined">
+    <icon-stack
       *ngIf="cell.occupant!.isMain === true"
       title="Main Pawn"
     >
-      {{cell.occupant!.side === 'a' ? '♔' : '♚'}}
-    </span>
-    <span
+      <icon type="ring"></icon>
+      <icon
+        type="ogre"
+        stroke="FFFFFF"
+        [fill]="cell.occupant!.side === 'a' ? '111111' : 'CCCCCC'"
+      ></icon>
+    </icon-stack>
+    <icon
       *ngIf="cell.occupant!.isMain === false"
+      type="ring"
+      stroke="FFFFFF"
+      [fill]="cell.occupant!.side === 'a' ? '111111' : 'CCCCCC'"
       title="Pawn"
-    >
-      {{cell.occupant!.side === 'a' ? '♙' : '♟'}}
-    </span>
-  </ng-container>
+    ></icon>
+  </div>
   <div
     *ngIf="cell.victory"
     class="watermark"

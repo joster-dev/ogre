@@ -1,13 +1,7 @@
+<fc-button (clicked)="restartSubject.next()">
+  Restart
+</fc-button>
 <form>
-  <fieldset>
-    <legend title="Settings">
-      ⚙️ Settings ⚙️
-    </legend>
-    <fc-button (clicked)="restartSubject.next()">
-      Restart
-    </fc-button>
-  </fieldset>
-  <br />
   <fieldset>
     <legend title="Bot Settings">
       🤖 Bot Settings ⚙️
@@ -18,17 +12,20 @@
         name="isBotEnabled"
         [items]="[{ key: true, value: 'Active' }]"
         (ngModelChange)="restartSubject.next()"
-      ></fc-choice>
+      >
+        Bot Enabled
+      </fc-choice>
       <fc-choice
         [(ngModel)]="model.isBotFirst"
         name="isBotFirst"
         [disabled]="!model.isBotEnabled"
         [items]="[{ key: true, value: 'Goes First' }]"
         (ngModelChange)="restartSubject.next()"
-      ></fc-choice>
+      >
+        Bot
+      </fc-choice>
     </div>
   </fieldset>
-  <br />
   <fieldset id="deck-fieldset">
     <legend title="Deck Settings">
       🎴 Deck Settings ⚙️
