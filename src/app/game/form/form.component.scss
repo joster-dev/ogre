@@ -7,6 +7,10 @@ form {
     border: 1px solid black;
     border-radius: 0.5em;
     box-shadow: 0.2em 0.2em 0.2em 0 black;
+
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
   }
 
   #bot {
@@ -17,4 +21,16 @@ form {
   #deck-fieldset {
     min-width: 0;
   }
+}
+
+:host > div {
+  text-align: center;
+
+  > fc-button {
+    display: inline-block;
+  }
+}
+
+h3 {
+  margin-top: 0;
 }

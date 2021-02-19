@@ -15,6 +15,14 @@ export class FormComponent implements OnInit, OnDestroy {
   @Output() restart = new EventEmitter();
 
   restartSubject = new Subject();
+  priorityItems = [
+    { key: true, value: 'First' },
+    { key: false, value: 'Second' }
+  ];
+  enabledItems = [
+    { key: true, value: 'On' },
+    { key: false, value: 'Off' }
+  ];
 
   constructor() { }
 

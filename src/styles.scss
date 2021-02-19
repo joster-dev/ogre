@@ -3,3 +3,29 @@ body {
   margin: 0;
   color: white;
 }
+
+.pulse {
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+.pulse-sm {
+  animation: glow-sm 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow-sm {
+  0% {
+    box-shadow: 0;
+  }
+  100% {
+    box-shadow: 0 0 0.5em #eee;
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0;
+  }
+  100% {
+    box-shadow: 0 0 1em #eee;
+  }
+}

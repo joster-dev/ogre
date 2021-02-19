@@ -1,7 +1,7 @@
 <section id="game">
   <div
     class="a-cards"
-    [class.active]="game.turn === 'a' && this.selectedCard === undefined"
+    [class.pulse]="game.turn === 'a' && this.selectedCard === undefined"
   >
     <ogre-card
       *ngFor="let card of aCards"
@@ -10,12 +10,17 @@
       [isDisabled]="game.turn === 'b'"
       (action)="selectCard(card)"
     ></ogre-card>
-    <div class="watermark">♕</div>
+    <div class="watermark">
+      <icon
+        type="user"
+        size="5rem"
+      ></icon>
+    </div>
   </div>
 
   <div
     class="b-cards"
-    [class.active]="game.turn === 'b' && this.selectedCard === undefined"
+    [class.pulse]="game.turn === 'b' && this.selectedCard === undefined"
   >
     <ogre-card
       *ngFor="let card of bCards"
@@ -24,7 +29,12 @@
       [isDisabled]="game.turn === 'a'"
       (action)="selectCard(card)"
     ></ogre-card>
-    <div class="watermark">♛</div>
+    <div class="watermark">
+      <icon
+        type="user"
+        size="5rem"
+      ></icon>
+    </div>
   </div>
 
   <div class="spare-card">

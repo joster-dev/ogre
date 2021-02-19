@@ -1,38 +1,39 @@
-<fc-button (clicked)="restartSubject.next()">
-  Restart
-</fc-button>
+<div>
+  <fc-button (clicked)="restartSubject.next()">
+    Restart
+  </fc-button>
+</div>
 <form>
   <fieldset>
-    <legend title="Bot Settings">
-      🤖 Bot Settings ⚙️
-    </legend>
+    <h3>🤖 Bot Settings</h3>
     <div id="bot">
       <fc-choice
         [(ngModel)]="model.isBotEnabled"
         name="isBotEnabled"
-        [items]="[{ key: true, value: 'Active' }]"
+        [items]="enabledItems"
         (ngModelChange)="restartSubject.next()"
       >
-        Bot Enabled
+        Enabled
       </fc-choice>
       <fc-choice
         [(ngModel)]="model.isBotFirst"
         name="isBotFirst"
         [disabled]="!model.isBotEnabled"
-        [items]="[{ key: true, value: 'Goes First' }]"
+        [items]="priorityItems"
         (ngModelChange)="restartSubject.next()"
       >
-        Bot
+        Priority
       </fc-choice>
     </div>
   </fieldset>
   <fieldset id="deck-fieldset">
-    <legend title="Deck Settings">
-      🎴 Deck Settings ⚙️
-    </legend>
+    <h3>🎴 Deck Settings</h3>
     <ogre-deck
       [model]="model.deck"
       (changeCardIsActive)="restartSubject.next()"
     ></ogre-deck>
+  </fieldset>
+  <fieldset>
+    <h3>🤵 User Settings</h3>
   </fieldset>
 </form>

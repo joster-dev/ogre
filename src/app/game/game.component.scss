@@ -25,6 +25,8 @@
   align-items: center;
   justify-content: space-around;
   position: relative;
+  border-radius: 0.5em;
+  margin: 0.5em 1em;
 
   .watermark {
     position: absolute;
@@ -32,7 +34,6 @@
     bottom: 0;
     right: 0;
     left: 0;
-    font-size: 5rem;
     opacity: 0.08;
     display: flex;
     align-items: center;
@@ -74,6 +75,7 @@
   margin: auto;
   grid-auto-rows: max(min(10vw, 10vh), 2em);
   grid-auto-columns: max(min(10vw, 10vh), 2em);
+  grid-gap: 0.5em;
 }
 
 footer {

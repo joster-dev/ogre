@@ -1,5 +1,6 @@
 button {
   background-color: white;
+  color: black;
   padding: 1em;
   border-width: medium;
   border-color: lightgrey;
@@ -8,12 +9,14 @@ button {
   align-items: center;
 
   &.is-active {
-    box-shadow: inset 0 0 1em black;
+    box-shadow: 0 0 1em white;
   }
 
   &:disabled {
     border-style: solid;
+    color: black;
   }
+
   &:not(:disabled) {
     cursor: pointer;
   }
