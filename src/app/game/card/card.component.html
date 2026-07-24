@@ -1,32 +1,32 @@
 <button
   type="button"
-  [class.is-active]="isActive"
-  [class.rotate-90]="card.side === 'a'"
-  [class.rotate-270]="card.side === 'b'"
-  [disabled]="isDisabled"
-  [title]="card.name"
+  [class.is-active]="isActive()"
+  [class.rotate-90]="card().side === 'a'"
+  [class.rotate-270]="card().side === 'b'"
+  [disabled]="isDisabled()"
+  [title]="card().name"
   (click)="action.emit()"
 >
   <div class="grid">
-    <div
-      *ngFor="let cell of grid"
-      class="cell"
-      [class.accent]="(cell.x + cell.y) % 2 === 0"
-      [class.center]="cell.isCenter"
-      [style.grid-column]="cell.x + 1"
-      [style.grid-row]="cell.y + 1"
-    >
+    @for (cell of grid(); track cell) {
       <div
-        *ngIf="cell.isActive"
-        class="target-bg"
-      ></div>
-    </div>
+        class="cell"
+        [class.accent]="(cell.x + cell.y) % 2 === 0"
+        [class.center]="cell.isCenter"
+        [style.grid-column]="cell.x + 1"
+        [style.grid-row]="cell.y + 1"
+      >
+        @if (cell.isActive) {
+          <div class="target-bg"></div>
+        }
+      </div>
+    }
   </div>
   <div
     class="icon"
-    [class.rotate-90]="card.side === 'b'"
-    [class.rotate-270]="card.side === 'a'"
+    [class.rotate-90]="card().side === 'b'"
+    [class.rotate-270]="card().side === 'a'"
   >
-    {{card.icon}}
+    {{card().icon}}
   </div>
 </button>

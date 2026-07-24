@@ -1,36 +1,41 @@
+@let form = model();
+
 <div>
-  <fc-button (clicked)="restartSubject.next()">
+  <button
+    type="button"
+    (click)="requestRestart()"
+  >
     Restart
-  </fc-button>
+  </button>
 </div>
 <form>
   <fieldset>
     <h3>🤖 Bot Settings</h3>
     <div id="bot">
-      <fc-choice
-        [(ngModel)]="model.isBotEnabled"
+      <cc-choice
+        [(ngModel)]="form.isBotEnabled"
         name="isBotEnabled"
         [items]="enabledItems"
-        (ngModelChange)="restartSubject.next()"
+        (ngModelChange)="requestRestart()"
       >
         Enabled
-      </fc-choice>
-      <fc-choice
-        [(ngModel)]="model.isBotFirst"
+      </cc-choice>
+      <cc-choice
+        [(ngModel)]="form.isBotFirst"
         name="isBotFirst"
-        [disabled]="!model.isBotEnabled"
+        [disabled]="!form.isBotEnabled"
         [items]="priorityItems"
-        (ngModelChange)="restartSubject.next()"
+        (ngModelChange)="requestRestart()"
       >
         Priority
-      </fc-choice>
+      </cc-choice>
     </div>
   </fieldset>
   <fieldset id="deck-fieldset">
     <h3>🎴 Deck Settings</h3>
     <ogre-deck
-      [model]="model.deck"
-      (changeCardIsActive)="restartSubject.next()"
+      [model]="form.deck"
+      (changeCardIsActive)="requestRestart()"
     ></ogre-deck>
   </fieldset>
   <fieldset>

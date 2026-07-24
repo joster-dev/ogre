@@ -1,38 +1,42 @@
-import { Component, OnInit, EventEmitter, Input, Output, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { Component, input, output } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FormsModule } from '@angular/forms';
+import { Subject, debounceTime } from 'rxjs';
 
-import { Form } from 'src/app/models';
+import { ChoiceComponent } from '@joster-dev/chaos-control';
+
+import { Form } from '../../models';
+import { DeckComponent } from './deck/deck.component';
 
 @Component({
   selector: 'ogre-form',
+  imports: [FormsModule, ChoiceComponent, DeckComponent],
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrl: './form.component.scss'
 })
-export class FormComponent implements OnInit, OnDestroy {
-  @Input() model!: Form;
+export class FormComponent {
+  readonly model = input.required<Form>();
 
-  @Output() restart = new EventEmitter();
+  readonly restart = output<void>();
 
-  restartSubject = new Subject();
-  priorityItems = [
+  readonly priorityItems = [
     { key: true, value: 'First' },
     { key: false, value: 'Second' }
   ];
-  enabledItems = [
+  readonly enabledItems = [
     { key: true, value: 'On' },
     { key: false, value: 'Off' }
   ];
 
-  constructor() { }
+  private readonly restartSubject = new Subject<void>();
 
-  ngOnInit() {
+  constructor() {
     this.restartSubject
-      .pipe(debounceTime(500))
+      .pipe(debounceTime(500), takeUntilDestroyed())
       .subscribe(() => this.restart.emit());
   }
 
-  ngOnDestroy() {
-    this.restartSubject.complete();
+  requestRestart(): void {
+    this.restartSubject.next();
   }
 }

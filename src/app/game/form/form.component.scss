@@ -26,8 +26,16 @@ form {
 :host > div {
   text-align: center;
 
-  > fc-button {
+  > button {
     display: inline-block;
+    font: inherit;
+    color: black;
+    background-color: white;
+    padding: 0.5em 1em;
+    border-width: medium;
+    border-color: lightgrey;
+    border-radius: 0.5em;
+    cursor: pointer;
   }
 }
 
