@@ -1,12 +1,14 @@
-<div *ngFor="let card of model">
-  <fc-choice
-    [ngModel]="card.isActive"
-    (ngModelChange)="changeCard(card, $event)"
-    [items]="[{ key: true, value: 'Included' }]"
-    [disabled]="countActiveCards <= 5 && card.isActive === true"
-  ></fc-choice>
-  <ogre-card
-    [card]="card"
-    [isDisabled]="true"
-  ></ogre-card>
-</div>
+@for (card of model(); track card) {
+  <div>
+    <cc-choice
+      [ngModel]="card.isActive"
+      (ngModelChange)="changeCard(card, $event)"
+      [items]="includedItems"
+      [disabled]="countActiveCards <= 5 && card.isActive === true"
+    ></cc-choice>
+    <ogre-card
+      [card]="card"
+      [isDisabled]="true"
+    ></ogre-card>
+  </div>
+}

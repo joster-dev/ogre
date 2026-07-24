@@ -1,59 +1,99 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
+
+import { IconComponent } from '@joster-dev/icon';
+
 import { Card, Cell, Form, Game } from '../models';
+import { CardComponent } from './card/card.component';
+import { CellComponent } from './cell/cell.component';
+import { FormComponent } from './form/form.component';
 
 @Component({
   selector: 'ogre-game',
+  imports: [NgTemplateOutlet, IconComponent, CardComponent, CellComponent, FormComponent],
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.scss']
+  styleUrl: './game.component.scss'
 })
 export class GameComponent {
-  game!: Game;
-  form = new Form();
+  readonly form = new Form();
 
-  selectedCard?: Card;
-  selectedCell?: Cell;
-
-  constructor() {
-    this.newGame();
-  }
+  readonly game = signal(this.createGame());
+  readonly selectedCard = signal<Card | undefined>(undefined);
+  readonly selectedCell = signal<Cell | undefined>(undefined);
 
   get aCards() {
-    return this.game.cards.filter(card => card.side === 'a');
+    return this.game().cards.filter(card => card.side === 'a');
   }
 
   get bCards() {
-    return this.game.cards.filter(card => card.side === 'b');
+    return this.game().cards.filter(card => card.side === 'b');
   }
 
   get spareCard() {
-    return this.game.cards.find(card => card.side === undefined);
+    return this.game().cards.find(card => card.side === undefined);
   }
 
   get targetCells() {
-    return this.game.moves
-      .filter(move => this.selectedCard === undefined || move.card === this.selectedCard)
-      .filter(move => this.selectedCell === undefined || move.source === this.selectedCell)
+    const selectedCard = this.selectedCard();
+    const selectedCell = this.selectedCell();
+    return this.game().moves
+      .filter(move => selectedCard === undefined || move.card === selectedCard)
+      .filter(move => selectedCell === undefined || move.source === selectedCell)
       .map(move => move.target);
   }
 
   isCellDisabled(cell: Cell): boolean {
-    if (this.selectedCard !== undefined && this.selectedCell !== undefined && this.selectedCell !== cell) {
+    const selectedCell = this.selectedCell();
+    if (this.selectedCard() !== undefined && selectedCell !== undefined && selectedCell !== cell) {
       return this.targetCells.includes(cell) === false;
     }
 
-    return cell.occupant === undefined || cell.occupant.side !== this.game.turn;
+    return cell.occupant === undefined || cell.occupant.side !== this.game().turn;
   }
 
   newGame() {
-    const deck = JSON.parse(JSON.stringify(this.form.deck.filter(card => card.isActive === true)));
-    const cards = [];
+    this.game.set(this.createGame());
+  }
+
+  selectCard(card: Card): void {
+    this.selectedCard.update(selected => card === selected ? undefined : card);
+  }
+
+  selectCell(cell: Cell): void {
+    const game = this.game();
+    const selectedCard = this.selectedCard();
+    const selectedCell = this.selectedCell();
+
+    if (selectedCard !== undefined && selectedCell !== undefined && this.targetCells.includes(cell) === true) {
+      const isWon = game.play({
+        card: selectedCard,
+        source: selectedCell,
+        target: cell
+      });
+      this.selectedCard.set(undefined);
+      this.selectedCell.set(undefined);
+      if (isWon === true) {
+        alert(`${game.turn} wins`);
+        this.newGame();
+        return;
+      }
+      if (this.botPlay(game) === true) {
+        this.newGame();
+      }
+      return;
+    }
+
+    this.selectedCell.set(cell === selectedCell ? undefined : cell);
+  }
+
+  private createGame(): Game {
+    const deck: Card[] = JSON.parse(JSON.stringify(this.form.deck.filter(card => card.isActive === true)));
+    const cards: Card[] = [];
 
     this.shuffle(deck);
 
-    let topCard;
-
     for (let i = 0; i < 5; i++) {
-      topCard = deck.pop();
+      const topCard = deck.pop();
       if (topCard === undefined) throw new Error('deck built incorrectly');
       topCard.side = i === 0
         ? undefined
@@ -61,48 +101,24 @@ export class GameComponent {
           ? 'a' : 'b';
       cards.push(topCard);
     }
-    this.game = new Game(this.createGrid(), cards);
-    this.botPlay();
+
+    const game = new Game(this.createGrid(), cards);
+
+    return this.botPlay(game) === true ? this.createGame() : game;
   }
 
-  selectCard(card: Card): void {
-    this.selectedCard = card === this.selectedCard ? undefined : card;
-  }
+  /** Plays the bot's turn when it is the bot's move. Returns `true` when the bot won. */
+  private botPlay(game: Game): boolean {
+    if (!this.form.isBotEnabled) return false;
 
-  selectCell(cell: Cell): void {
-    if (this.selectedCard !== undefined && this.selectedCell !== undefined && this.targetCells.includes(cell) === true) {
-      switch (this.game.play({
-        card: this.selectedCard,
-        source: this.selectedCell,
-        target: cell
-      })) {
-        case true:
-          alert(`${this.game.turn} wins`);
-          this.selectedCard = undefined;
-          this.selectedCell = undefined;
-          this.newGame();
-          return;
-        default:
-          this.selectedCard = undefined;
-          this.selectedCell = undefined;
-          this.botPlay();
-      }
-      return;
-    }
-    this.selectedCell = cell === this.selectedCell ? undefined : cell;
-  }
-
-  private botPlay() {
-    if (!this.form.isBotEnabled) return;
-
-    if ((this.form.isBotFirst === true && this.game.turn === 'a') || (!this.form.isBotFirst && this.game.turn === 'b')) {
-      switch (this.game.play(this.game.moves[Math.floor(Math.random() * this.game.moves.length)])) {
-        case true:
-          alert(`${this.game.turn} wins`);
-          this.newGame();
-          return;
+    if ((this.form.isBotFirst === true && game.turn === 'a') || (!this.form.isBotFirst && game.turn === 'b')) {
+      if (game.play(game.moves[Math.floor(Math.random() * game.moves.length)]) === true) {
+        alert(`${game.turn} wins`);
+        return true;
       }
     }
+
+    return false;
   }
 
   private createGrid(): Cell[] {
@@ -115,7 +131,7 @@ export class GameComponent {
     return temp;
   }
 
-  private shuffle(array: any[]) {
+  private shuffle(array: Card[]) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];

@@ -1,21 +1,26 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, input, output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { Card } from 'src/app/models';
+import { ChoiceComponent } from '@joster-dev/chaos-control';
+
+import { Card } from '../../../models';
+import { CardComponent } from '../../card/card.component';
 
 @Component({
   selector: 'ogre-deck',
+  imports: [FormsModule, ChoiceComponent, CardComponent],
   templateUrl: './deck.component.html',
-  styleUrls: ['./deck.component.scss']
+  styleUrl: './deck.component.scss'
 })
 export class DeckComponent {
-  @Input() model: Card[] = [];
+  readonly model = input<Card[]>([]);
 
-  @Output() changeCardIsActive = new EventEmitter();
+  readonly changeCardIsActive = output<void>();
 
-  constructor() { }
+  readonly includedItems = [{ key: true, value: 'Included' }];
 
   get countActiveCards() {
-    return this.model.filter(card => card.isActive === true).length;
+    return this.model().filter(card => card.isActive === true).length;
   }
 
   changeCard(card: Card, isActive: true | null) {

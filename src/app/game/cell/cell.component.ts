@@ -1,19 +1,21 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, input, output } from '@angular/core';
+
+import { IconComponent, IconStackComponent } from '@joster-dev/icon';
+
 import { Cell } from '../../models';
 
 @Component({
   selector: 'ogre-cell[cell]',
+  imports: [IconComponent, IconStackComponent],
   templateUrl: './cell.component.html',
-  styleUrls: ['./cell.component.scss']
+  styleUrl: './cell.component.scss'
 })
 export class CellComponent {
-  @Input() cell!: Cell;
+  readonly cell = input.required<Cell>();
 
-  @Input() isActive = false;
-  @Input() isDisabled = false;
-  @Input() isTarget = false;
+  readonly isActive = input(false);
+  readonly isDisabled = input(false);
+  readonly isTarget = input(false);
 
-  @Output() action = new EventEmitter();
-
-  constructor() { }
+  readonly action = output<void>();
 }

@@ -1,43 +1,42 @@
 <button
   type="button"
-  [class.active]="isActive"
-  [class.accent]="(cell.x + cell.y) % 2 === 0"
-  [class.pulse-sm]="!isDisabled"
-  [disabled]="isDisabled"
+  [class.active]="isActive()"
+  [class.accent]="(cell().x + cell().y) % 2 === 0"
+  [class.pulse-sm]="!isDisabled()"
+  [disabled]="isDisabled()"
   (click)="action.emit()"
 >
-  <div *ngIf="cell.occupant !== undefined">
-    <icon-stack
-      *ngIf="cell.occupant!.isMain === true"
-      title="Main Pawn"
-    >
+  @if (cell().occupant; as occupant) {
+    <div>
+      @if (occupant.isMain === true) {
+        <icon-stack title="Main Pawn">
+          <icon
+            type="ring"
+            [fill]="occupant.side === 'a' ? '777CCC' : 'CCC777'"
+          ></icon>
+          <icon
+            type="ogre"
+            [fill]="occupant.side === 'a' ? '777CCC' : 'CCC777'"
+          ></icon>
+        </icon-stack>
+      } @else {
+        <icon
+          type="ring"
+          [fill]="occupant.side === 'a' ? '777CCC' : 'CCC777'"
+          title="Pawn"
+        ></icon>
+      }
+    </div>
+  }
+  @if (cell().victory; as victory) {
+    <div class="watermark">
       <icon
-        type="ring"
-        [fill]="cell.occupant!.side === 'a' ? '777CCC' : 'CCC777'"
+        type="crown"
+        [fill]="victory === 'a' ? '777CCC' : 'CCC777'"
       ></icon>
-      <icon
-        type="ogre"
-        [fill]="cell.occupant!.side === 'a' ? '777CCC' : 'CCC777'"
-      ></icon>
-    </icon-stack>
-    <icon
-      *ngIf="cell.occupant!.isMain === false"
-      type="ring"
-      [fill]="cell.occupant!.side === 'a' ? '777CCC' : 'CCC777'"
-      title="Pawn"
-    ></icon>
-  </div>
-  <div
-    *ngIf="cell.victory"
-    class="watermark"
-  >
-    <icon
-      type="crown"
-      [fill]="cell.victory === 'a' ? '777CCC' : 'CCC777'"
-    ></icon>
-  </div>
-  <div
-    *ngIf="isTarget === true"
-    class="target-bg"
-  ></div>
+    </div>
+  }
+  @if (isTarget() === true) {
+    <div class="target-bg"></div>
+  }
 </button>

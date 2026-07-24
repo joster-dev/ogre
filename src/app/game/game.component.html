@@ -1,15 +1,16 @@
 <section id="game">
   <div
     class="a-cards"
-    [class.pulse]="game.turn === 'a' && this.selectedCard === undefined"
+    [class.pulse]="game().turn === 'a' && selectedCard() === undefined"
   >
-    <ogre-card
-      *ngFor="let card of aCards"
-      [card]="card"
-      [isActive]="selectedCard === card"
-      [isDisabled]="game.turn === 'b'"
-      (action)="selectCard(card)"
-    ></ogre-card>
+    @for (card of aCards; track card) {
+      <ogre-card
+        [card]="card"
+        [isActive]="selectedCard() === card"
+        [isDisabled]="game().turn === 'b'"
+        (action)="selectCard(card)"
+      ></ogre-card>
+    }
     <div class="watermark">
       <icon
         type="user"
@@ -20,15 +21,16 @@
 
   <div
     class="b-cards"
-    [class.pulse]="game.turn === 'b' && this.selectedCard === undefined"
+    [class.pulse]="game().turn === 'b' && selectedCard() === undefined"
   >
-    <ogre-card
-      *ngFor="let card of bCards"
-      [card]="card"
-      [isActive]="selectedCard === card"
-      [isDisabled]="game.turn === 'a'"
-      (action)="selectCard(card)"
-    ></ogre-card>
+    @for (card of bCards; track card) {
+      <ogre-card
+        [card]="card"
+        [isActive]="selectedCard() === card"
+        [isDisabled]="game().turn === 'a'"
+        (action)="selectCard(card)"
+      ></ogre-card>
+    }
     <div class="watermark">
       <icon
         type="user"
@@ -39,35 +41,38 @@
 
   <div class="spare-card">
     <ng-container *ngTemplateOutlet="arrow"></ng-container>
-    <ogre-card
-      [card]="spareCard"
-      [isDisabled]="true"
-    ></ogre-card>
+    @if (spareCard; as card) {
+      <ogre-card
+        [card]="card"
+        [isDisabled]="true"
+      ></ogre-card>
+    }
     <ng-container *ngTemplateOutlet="arrow"></ng-container>
   </div>
   <ng-template #arrow>
     <span
       class="arrow"
-      title="{{spareCard?.name}} goes {{game.turn === 'a' ? 'Left' : 'Right'}}"
+      title="{{spareCard?.name}} goes {{game().turn === 'a' ? 'Left' : 'Right'}}"
     >
-      {{game.turn === 'a' ? '👈' : '👉'}}
+      {{game().turn === 'a' ? '👈' : '👉'}}
     </span>
   </ng-template>
 
   <div
     class="grid"
-    [class.active]="selectedCard !== undefined"
+    [class.active]="selectedCard() !== undefined"
   >
-    <ogre-cell
-      *ngFor="let cell of game.cells"
-      [cell]="cell"
-      [isActive]="cell === selectedCell"
-      [isDisabled]="isCellDisabled(cell)"
-      [isTarget]="targetCells.includes(cell) === true"
-      [style.grid-column]="cell.x + 1"
-      [style.grid-row]="cell.y + 1"
-      (action)="selectCell(cell)"
-    ></ogre-cell>
+    @for (cell of game().cells; track cell) {
+      <ogre-cell
+        [cell]="cell"
+        [isActive]="cell === selectedCell()"
+        [isDisabled]="isCellDisabled(cell)"
+        [isTarget]="targetCells.includes(cell) === true"
+        [style.grid-column]="cell.x + 1"
+        [style.grid-row]="cell.y + 1"
+        (action)="selectCell(cell)"
+      ></ogre-cell>
+    }
   </div>
 </section>
 
