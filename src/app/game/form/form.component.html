@@ -1,15 +1,24 @@
-<div>
-  <button
-    type="button"
-    (click)="requestRestart()"
-  >
-    Restart
-  </button>
-</div>
-<form>
-  <fieldset>
-    <h3>🤖 Bot Settings</h3>
-    <div id="bot">
+<form
+  novalidate
+  class="d-flex gap-3 flex-column"
+>
+  <div class="d-flex justify-content-center">
+    <button
+      type="button"
+      class="new-game"
+      (click)="requestRestart()"
+    >
+      New Game
+    </button>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h2 class="d-flex gap-2 align-items-center justify-content-between">
+        <span>Bot Settings</span>
+        <span>🤖</span>
+      </h2>
+    </div>
+    <div class="card-body col-2">
       <cc-choice
         [ngModel]="settings.botEnabled()"
         (ngModelChange)="settings.botEnabled.set($event); requestRestart()"
@@ -28,10 +37,20 @@
         Priority
       </cc-choice>
     </div>
-  </fieldset>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h2 class="d-flex gap-2 align-items-center justify-content-between">
+        <span>Deck Settings</span>
+        <span>🎴</span>
+      </h2>
+    </div>
+    <div class="card-body">
+      <ogre-deck (changeCardIsActive)="requestRestart()"></ogre-deck>
+    </div>
+  </div>
   <fieldset id="deck-fieldset">
-    <h3>🎴 Deck Settings</h3>
-    <ogre-deck (changeCardIsActive)="requestRestart()"></ogre-deck>
+
   </fieldset>
   <fieldset>
     <h3>🤵 User Settings</h3>

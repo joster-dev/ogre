@@ -1,7 +1,6 @@
 <button
   type="button"
   [class.active]="isActive()"
-  [class.accent]="isAccent()"
   [class.pulse-sm]="!isDisabled()"
   [disabled]="isDisabled()"
   (click)="action.emit()"
@@ -10,16 +9,15 @@
   <icon
     [type]="isMain() ? 'crown' : 'ring'"
     [fill]="fill[side]"
-    title="Pawn"
+    [title]="isMain() ? 'King' : 'Pawn'"
   ></icon>
   }
   @if (temple(); as temple) {
-  <div class="watermark">
-    <icon
-      type="ogre"
-      [fill]="fill[temple]"
-    ></icon>
-  </div>
+  <icon
+    class="watermark"
+    type="ogre"
+    [fill]="fill[temple]"
+  ></icon>
   }
   @if (isTarget()) {
   <div class="target-bg"></div>

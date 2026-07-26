@@ -1,44 +1,21 @@
+:host {
+  // for scroll snap
+  display: block;
+}
+
 form {
   margin: auto;
+  padding: 2em 1em;
+  max-width: 720px;
+}
+
+.col-2 {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.new-game {
   padding: 1em;
-
-  fieldset {
-    padding: 1em;
-    border: 1px solid black;
-    border-radius: 0.5em;
-    box-shadow: 0.2em 0.2em 0.2em 0 black;
-
-    &:not(:last-child) {
-      margin-bottom: 1em;
-    }
-  }
-
-  #bot {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  #deck-fieldset {
-    min-width: 0;
-  }
-}
-
-:host > div {
-  text-align: center;
-
-  > button {
-    display: inline-block;
-    font: inherit;
-    color: black;
-    background-color: white;
-    padding: 0.5em 1em;
-    border-width: medium;
-    border-color: lightgrey;
-    border-radius: 0.5em;
-    cursor: pointer;
-  }
-}
-
-h3 {
-  margin-top: 0;
+  border-radius: 0.5em;
 }

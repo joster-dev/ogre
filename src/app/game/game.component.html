@@ -1,3 +1,12 @@
+<header class="d-flex align-items-center justify-content-between">
+  <h1>
+    Ogre
+  </h1>
+  <a href="https://github.com/joster-dev/ogre">
+    Github
+  </a>
+</header>
+
 @if (banner(); as banner) {
 <div
   class="outcome"
@@ -72,7 +81,6 @@
       [side]="cell.side"
       [isMain]="cell.isMain"
       [temple]="cell.temple"
-      [isAccent]="cell.isAccent"
       [isActive]="cell.isActive"
       [isDisabled]="cell.isDisabled"
       [isTarget]="cell.isTarget"
@@ -84,6 +92,12 @@
   </div>
 </section>
 
-<footer>
+<section>
   <ogre-form (restart)="store.newGame()"></ogre-form>
+</section>
+
+<footer class="w-lg d-flex justify-content-end">
+  <a href="https://joster-dev.github.io/">
+    © Jacob Osterhout 2026
+  </a>
 </footer>

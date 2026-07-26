@@ -1,13 +1,23 @@
-import { Injectable, computed, inject, signal } from '@angular/core';
+import { Injectable, computed, inject, signal } from "@angular/core";
 import {
-  Card, GameState, Side, botMove, legalMoves, newGame, play, templeAt, xOf, yOf,
-} from '../models';
-import { SettingsStore } from './settings.store';
+  Card,
+  GameState,
+  Side,
+  botMove,
+  legalMoves,
+  newGame,
+  play,
+  templeAt,
+  xOf,
+  yOf,
+} from "../models";
+import { SettingsStore } from "./settings.store";
 
 const BOT_THINK_MS = 400;
 const END_GAME_PAUSE_MS = 2500;
 
-const delay = (ms: number) => new Promise<void>(resolve => window.setTimeout(() => resolve(), ms));
+const delay = (ms: number) =>
+  new Promise<void>((resolve) => window.setTimeout(() => resolve(), ms));
 
 /** One square, ready to render. All primitives, so cells can be tracked by index. */
 export interface CellView {
@@ -17,7 +27,6 @@ export interface CellView {
   readonly temple: Side | null;
   readonly column: number;
   readonly row: number;
-  readonly isAccent: boolean;
   readonly isActive: boolean;
   readonly isTarget: boolean;
   readonly isDisabled: boolean;
@@ -38,7 +47,7 @@ export interface CardView {
  * change detection. Selections are plain indices, never object references. All
  * async work (the bot's pause, the end-of-game pause) happens here, never in the core.
  */
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class GameStore {
   private readonly settings = inject(SettingsStore);
 
@@ -63,10 +72,12 @@ export class GameStore {
   private readonly targets = computed(() => {
     const card = this.selectedCard();
     const from = this.selectedCell();
-    return new Set(this.moves()
-      .filter(move => card === null || move.card === card)
-      .filter(move => from === null || move.from === from)
-      .map(move => move.to));
+    return new Set(
+      this.moves()
+        .filter((move) => card === null || move.card === card)
+        .filter((move) => from === null || move.from === from)
+        .map((move) => move.to),
+    );
   });
 
   readonly cells = computed<readonly CellView[]>(() => {
@@ -82,25 +93,29 @@ export class GameStore {
       temple: templeAt(index),
       column: xOf(index) + 1,
       row: yOf(index) + 1,
-      isAccent: (xOf(index) + yOf(index)) % 2 === 0,
       isActive: index === selectedCell,
       isTarget: targets.has(index),
-      isDisabled: busy || (this.hasSelectedCard() && selectedCell !== null && selectedCell !== index
-        ? !targets.has(index)
-        : pawn === null || pawn.side !== turn),
+      isDisabled:
+        busy ||
+        (this.hasSelectedCard() &&
+        selectedCell !== null &&
+        selectedCell !== index
+          ? !targets.has(index)
+          : pawn === null || pawn.side !== turn),
     }));
   });
 
   readonly hands = computed<Readonly<Record<Side, readonly CardView[]>>>(() => {
     const { hands, turn } = this.state();
     const selected = this.selectedCard();
-    const view = (side: Side): readonly CardView[] => hands[side].map((card, index) => ({
-      card,
-      index,
-      isActive: side === turn && index === selected,
-      isDisabled: this.busy() || side !== turn,
-    }));
-    return { a: view('a'), b: view('b') };
+    const view = (side: Side): readonly CardView[] =>
+      hands[side].map((card, index) => ({
+        card,
+        index,
+        isActive: side === turn && index === selected,
+        isDisabled: this.busy() || side !== turn,
+      }));
+    return { a: view("a"), b: view("b") };
   });
 
   constructor() {
@@ -108,14 +123,12 @@ export class GameStore {
   }
 
   selectCard(index: number): void {
-    if (this.busy())
-      return;
-    this.selectedCard.update(selected => (selected === index ? null : index));
+    if (this.busy()) return;
+    this.selectedCard.update((selected) => (selected === index ? null : index));
   }
 
   async selectCell(index: number): Promise<void> {
-    if (this.busy())
-      return;
+    if (this.busy()) return;
 
     const card = this.selectedCard();
     const from = this.selectedCell();
@@ -142,12 +155,14 @@ export class GameStore {
 
   /** Plays out the bot's turns, then settles a finished game. */
   private async advance(): Promise<void> {
-    while (this.state().outcome.kind === 'playing' && this.settings.botSide() === this.turn()) {
+    while (
+      this.state().outcome.kind === "playing" &&
+      this.settings.botSide() === this.turn()
+    ) {
       this.busy.set(true);
       await delay(BOT_THINK_MS);
       const move = botMove(this.state());
-      if (move === null)
-        break;
+      if (move === null) break;
       this.state.set(play(this.state(), move));
     }
     this.busy.set(false);
@@ -155,8 +170,7 @@ export class GameStore {
   }
 
   private async settle(): Promise<void> {
-    if (this.outcome().kind === 'playing')
-      return;
+    if (this.outcome().kind === "playing") return;
     this.busy.set(true);
     await delay(END_GAME_PAUSE_MS);
     this.busy.set(false);
