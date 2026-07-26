@@ -1,5 +1,3 @@
-@let form = model();
-
 <div>
   <button
     type="button"
@@ -13,19 +11,19 @@
     <h3>🤖 Bot Settings</h3>
     <div id="bot">
       <cc-choice
-        [(ngModel)]="form.isBotEnabled"
-        name="isBotEnabled"
+        [ngModel]="settings.botEnabled()"
+        (ngModelChange)="settings.botEnabled.set($event); requestRestart()"
+        name="botEnabled"
         [items]="enabledItems"
-        (ngModelChange)="requestRestart()"
       >
         Enabled
       </cc-choice>
       <cc-choice
-        [(ngModel)]="form.isBotFirst"
-        name="isBotFirst"
-        [disabled]="!form.isBotEnabled"
+        [ngModel]="settings.botFirst()"
+        (ngModelChange)="settings.botFirst.set($event); requestRestart()"
+        name="botFirst"
+        [disabled]="!settings.botEnabled()"
         [items]="priorityItems"
-        (ngModelChange)="requestRestart()"
       >
         Priority
       </cc-choice>
@@ -33,10 +31,7 @@
   </fieldset>
   <fieldset id="deck-fieldset">
     <h3>🎴 Deck Settings</h3>
-    <ogre-deck
-      [model]="form.deck"
-      (changeCardIsActive)="requestRestart()"
-    ></ogre-deck>
+    <ogre-deck (changeCardIsActive)="requestRestart()"></ogre-deck>
   </fieldset>
   <fieldset>
     <h3>🤵 User Settings</h3>

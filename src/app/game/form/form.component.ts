@@ -1,11 +1,11 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { Subject, debounceTime } from 'rxjs';
 
 import { ChoiceComponent } from '@joster-dev/chaos-control';
 
-import { Form } from '../../models';
+import { SettingsStore } from '../settings.store';
 import { DeckComponent } from './deck/deck.component';
 
 @Component({
@@ -15,15 +15,15 @@ import { DeckComponent } from './deck/deck.component';
   styleUrl: './form.component.scss'
 })
 export class FormComponent {
-  readonly model = input.required<Form>();
+  protected readonly settings = inject(SettingsStore);
 
   readonly restart = output<void>();
 
-  readonly priorityItems = [
+  protected readonly priorityItems = [
     { key: true, value: 'First' },
     { key: false, value: 'Second' }
   ];
-  readonly enabledItems = [
+  protected readonly enabledItems = [
     { key: true, value: 'On' },
     { key: false, value: 'Off' }
   ];

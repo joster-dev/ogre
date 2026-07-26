@@ -1,31 +1,32 @@
 <button
   type="button"
   [class.is-active]="isActive()"
-  [class.rotate-90]="card().side === 'a'"
-  [class.rotate-270]="card().side === 'b'"
+  [class.rotate-90]="side() === 'a'"
+  [class.rotate-270]="side() === 'b'"
+  [class.pulse]="isPulse()"
   [disabled]="isDisabled()"
   [title]="card().name"
   (click)="action.emit()"
 >
   <div class="grid">
-    @for (cell of grid(); track cell) {
-      <div
-        class="cell"
-        [class.accent]="(cell.x + cell.y) % 2 === 0"
-        [class.center]="cell.isCenter"
-        [style.grid-column]="cell.x + 1"
-        [style.grid-row]="cell.y + 1"
-      >
-        @if (cell.isActive) {
-          <div class="target-bg"></div>
-        }
-      </div>
+    @for (square of squares(); track $index) {
+    <div
+      class="cell"
+      [class.accent]="(square.x + square.y) % 2 === 0"
+      [class.center]="square.isCenter"
+      [style.grid-column]="square.x + 1"
+      [style.grid-row]="square.y + 1"
+    >
+      @if (square.isActive) {
+      <div class="target-bg"></div>
+      }
+    </div>
     }
   </div>
   <div
     class="icon"
-    [class.rotate-90]="card().side === 'b'"
-    [class.rotate-270]="card().side === 'a'"
+    [class.rotate-90]="side() === 'b'"
+    [class.rotate-270]="side() === 'a'"
   >
     {{card().icon}}
   </div>

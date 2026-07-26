@@ -5,7 +5,7 @@ button {
   background-color: white;
   border-width: medium;
   border-radius: 0.5em;
-  padding: 0;
+  padding: 0.25em;
   font-size: x-large;
   cursor: pointer;
 
@@ -29,7 +29,7 @@ button {
     right: 0;
     left: 0;
     font-size: 5rem;
-    opacity: 0.1;
+    opacity: 0.15;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +41,13 @@ button {
   > .target-bg {
     opacity: 0.3;
     background: #000000;
-    background: repeating-linear-gradient(45deg, transparent, transparent 10px, black 10px, black 17px);
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      black 10px,
+      black 17px
+    );
     position: absolute;
     top: 0;
     right: 0;

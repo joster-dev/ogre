@@ -1,13 +1,13 @@
-@for (card of model(); track card) {
+@for (entry of cards(); track entry.card.name) {
   <div>
     <cc-choice
-      [ngModel]="card.isActive"
-      (ngModelChange)="changeCard(card, $event)"
+      [ngModel]="entry.included"
+      (ngModelChange)="setIncluded(entry.card.name, $event)"
       [items]="includedItems"
-      [disabled]="countActiveCards <= 5 && card.isActive === true"
+      [disabled]="entry.isLocked"
     ></cc-choice>
     <ogre-card
-      [card]="card"
+      [card]="entry.card"
       [isDisabled]="true"
     ></ogre-card>
   </div>

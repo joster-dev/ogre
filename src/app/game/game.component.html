@@ -1,15 +1,23 @@
+@if (banner(); as banner) {
+<div
+  class="outcome"
+  role="status"
+>
+  {{banner}}
+</div>
+}
+
 <section id="game">
-  <div
-    class="a-cards"
-    [class.pulse]="game().turn === 'a' && selectedCard() === undefined"
-  >
-    @for (card of aCards; track card) {
-      <ogre-card
-        [card]="card"
-        [isActive]="selectedCard() === card"
-        [isDisabled]="game().turn === 'b'"
-        (action)="selectCard(card)"
-      ></ogre-card>
+  <div class="a-cards">
+    @for (entry of store.hands().a; track entry.index) {
+    <ogre-card
+      [card]="entry.card"
+      side="a"
+      [isActive]="entry.isActive"
+      [isDisabled]="entry.isDisabled"
+      [isPulse]="store.turn() === 'a' && !store.hasSelectedCard()"
+      (action)="store.selectCard(entry.index)"
+    ></ogre-card>
     }
     <div class="watermark">
       <icon
@@ -19,17 +27,16 @@
     </div>
   </div>
 
-  <div
-    class="b-cards"
-    [class.pulse]="game().turn === 'b' && selectedCard() === undefined"
-  >
-    @for (card of bCards; track card) {
-      <ogre-card
-        [card]="card"
-        [isActive]="selectedCard() === card"
-        [isDisabled]="game().turn === 'a'"
-        (action)="selectCard(card)"
-      ></ogre-card>
+  <div class="b-cards">
+    @for (entry of store.hands().b; track entry.index) {
+    <ogre-card
+      [card]="entry.card"
+      side="b"
+      [isActive]="entry.isActive"
+      [isDisabled]="entry.isDisabled"
+      [isPulse]="store.turn() === 'b' && !store.hasSelectedCard()"
+      (action)="store.selectCard(entry.index)"
+    ></ogre-card>
     }
     <div class="watermark">
       <icon
@@ -41,44 +48,42 @@
 
   <div class="spare-card">
     <ng-container *ngTemplateOutlet="arrow"></ng-container>
-    @if (spareCard; as card) {
-      <ogre-card
-        [card]="card"
-        [isDisabled]="true"
-      ></ogre-card>
-    }
+    <ogre-card
+      [card]="store.spare()"
+      [isDisabled]="true"
+    ></ogre-card>
     <ng-container *ngTemplateOutlet="arrow"></ng-container>
   </div>
   <ng-template #arrow>
     <span
       class="arrow"
-      title="{{spareCard?.name}} goes {{game().turn === 'a' ? 'Left' : 'Right'}}"
+      title="{{store.spare().name}} goes {{store.turn() === 'a' ? 'Left' : 'Right'}}"
     >
-      {{game().turn === 'a' ? '👈' : '👉'}}
+      {{store.turn() === 'a' ? '👈' : '👉'}}
     </span>
   </ng-template>
 
   <div
     class="grid"
-    [class.active]="selectedCard() !== undefined"
+    [class.active]="store.hasSelectedCard()"
   >
-    @for (cell of game().cells; track cell) {
-      <ogre-cell
-        [cell]="cell"
-        [isActive]="cell === selectedCell()"
-        [isDisabled]="isCellDisabled(cell)"
-        [isTarget]="targetCells.includes(cell) === true"
-        [style.grid-column]="cell.x + 1"
-        [style.grid-row]="cell.y + 1"
-        (action)="selectCell(cell)"
-      ></ogre-cell>
+    @for (cell of store.cells(); track $index) {
+    <ogre-cell
+      [side]="cell.side"
+      [isMain]="cell.isMain"
+      [temple]="cell.temple"
+      [isAccent]="cell.isAccent"
+      [isActive]="cell.isActive"
+      [isDisabled]="cell.isDisabled"
+      [isTarget]="cell.isTarget"
+      [style.grid-column]="cell.column"
+      [style.grid-row]="cell.row"
+      (action)="store.selectCell(cell.index)"
+    ></ogre-cell>
     }
   </div>
 </section>
 
 <footer>
-  <ogre-form
-    [model]="form"
-    (restart)="newGame()"
-  ></ogre-form>
+  <ogre-form (restart)="store.newGame()"></ogre-form>
 </footer>

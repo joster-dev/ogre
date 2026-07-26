@@ -1,42 +1,27 @@
 <button
   type="button"
   [class.active]="isActive()"
-  [class.accent]="(cell().x + cell().y) % 2 === 0"
+  [class.accent]="isAccent()"
   [class.pulse-sm]="!isDisabled()"
   [disabled]="isDisabled()"
   (click)="action.emit()"
 >
-  @if (cell().occupant; as occupant) {
-    <div>
-      @if (occupant.isMain === true) {
-        <icon-stack title="Main Pawn">
-          <icon
-            type="ring"
-            [fill]="occupant.side === 'a' ? '777CCC' : 'CCC777'"
-          ></icon>
-          <icon
-            type="ogre"
-            [fill]="occupant.side === 'a' ? '777CCC' : 'CCC777'"
-          ></icon>
-        </icon-stack>
-      } @else {
-        <icon
-          type="ring"
-          [fill]="occupant.side === 'a' ? '777CCC' : 'CCC777'"
-          title="Pawn"
-        ></icon>
-      }
-    </div>
+  @if (side(); as side) {
+  <icon
+    [type]="isMain() ? 'crown' : 'ring'"
+    [fill]="fill[side]"
+    title="Pawn"
+  ></icon>
   }
-  @if (cell().victory; as victory) {
-    <div class="watermark">
-      <icon
-        type="crown"
-        [fill]="victory === 'a' ? '777CCC' : 'CCC777'"
-      ></icon>
-    </div>
+  @if (temple(); as temple) {
+  <div class="watermark">
+    <icon
+      type="ogre"
+      [fill]="fill[temple]"
+    ></icon>
+  </div>
   }
-  @if (isTarget() === true) {
-    <div class="target-bg"></div>
+  @if (isTarget()) {
+  <div class="target-bg"></div>
   }
 </button>

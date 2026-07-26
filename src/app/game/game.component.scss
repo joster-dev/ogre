@@ -1,3 +1,17 @@
+.outcome {
+  position: fixed;
+  top: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  padding: 0.5em 1.5em;
+  border-radius: 0.5em;
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 1em white;
+  user-select: none;
+}
+
 #game {
   height: 100vh;
   min-height: 650px;

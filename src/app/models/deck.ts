@@ -1,10 +1,13 @@
-import { Card } from './models';
+import { Card } from './card';
 
-export const DECK: Card[] = [
+/**
+ * Every card in the game. Frozen plain data — the deck is never mutated; which
+ * cards are in play is a setting (a list of names), not a flag on the card.
+ */
+export const DECK: readonly Card[] = [
   {
     name: 'Badger',
     icon: '🦡',
-    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: 2, y: 1 },
@@ -14,7 +17,6 @@ export const DECK: Card[] = [
   {
     name: 'Bear',
     icon: '🐻',
-    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: 0, y: 1 },
@@ -24,7 +26,6 @@ export const DECK: Card[] = [
   {
     name: 'Boar',
     icon: '🐗',
-    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: -1, y: 0 },
@@ -34,7 +35,6 @@ export const DECK: Card[] = [
   {
     name: 'Crab',
     icon: '🦀',
-    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: -2, y: 0 },
@@ -44,7 +44,6 @@ export const DECK: Card[] = [
   {
     name: 'Crocodile',
     icon: '🐊',
-    isActive: true,
     moves: [
       { x: -2, y: 0 },
       { x: -1, y: -1 },
@@ -54,7 +53,6 @@ export const DECK: Card[] = [
   {
     name: 'Dog',
     icon: '🐕',
-    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: -1, y: 0 },
@@ -64,7 +62,6 @@ export const DECK: Card[] = [
   {
     name: 'Dolphin',
     icon: '🐬',
-    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 0 },
@@ -74,7 +71,6 @@ export const DECK: Card[] = [
   {
     name: 'Dragon',
     icon: '🐉',
-    isActive: true,
     moves: [
       { x: -2, y: 1 },
       { x: 2, y: 1 },
@@ -85,7 +81,6 @@ export const DECK: Card[] = [
   {
     name: 'Duck',
     icon: '🦆',
-    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: -1, y: -1 },
@@ -95,7 +90,6 @@ export const DECK: Card[] = [
   {
     name: 'Eagle',
     icon: '🦅',
-    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 1 },
@@ -105,7 +99,6 @@ export const DECK: Card[] = [
   {
     name: 'Elephant',
     icon: '🐘',
-    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 1 },
@@ -116,7 +109,6 @@ export const DECK: Card[] = [
   {
     name: 'Fox',
     icon: '🦊',
-    isActive: true,
     moves: [
       { x: 1, y: 1 },
       { x: 1, y: 0 },
@@ -126,7 +118,6 @@ export const DECK: Card[] = [
   {
     name: 'Frog',
     icon: '🐸',
-    isActive: true,
     moves: [
       { x: -2, y: 0 },
       { x: -1, y: 1 },
@@ -136,7 +127,6 @@ export const DECK: Card[] = [
   {
     name: 'Giraffe',
     icon: '🦒',
-    isActive: true,
     moves: [
       { x: -2, y: 1 },
       { x: 2, y: 1 },
@@ -146,7 +136,6 @@ export const DECK: Card[] = [
   {
     name: 'Horse',
     icon: '🐎',
-    isActive: true,
     moves: [
       { x: -1, y: 0 },
       { x: 0, y: 1 },
@@ -156,7 +145,6 @@ export const DECK: Card[] = [
   {
     name: 'Kangaroo',
     icon: '🦘',
-    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: -1 },
@@ -166,7 +154,6 @@ export const DECK: Card[] = [
   {
     name: 'Lizard',
     icon: '🦎',
-    isActive: true,
     moves: [
       { x: -2, y: 0 },
       { x: 0, y: 1 },
@@ -176,7 +163,6 @@ export const DECK: Card[] = [
   {
     name: 'Monkey',
     icon: '🐒',
-    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 1 },
@@ -187,7 +173,6 @@ export const DECK: Card[] = [
   {
     name: 'Mouse',
     icon: '🐁',
-    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: 1, y: 0 },
@@ -197,7 +182,6 @@ export const DECK: Card[] = [
   {
     name: 'Octopus',
     icon: '🐙',
-    isActive: true,
     moves: [
       { x: -2, y: 0 },
       { x: -1, y: 1 },
@@ -208,7 +192,6 @@ export const DECK: Card[] = [
   {
     name: 'Ox',
     icon: '🐂',
-    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: 0, y: -1 },
@@ -218,7 +201,6 @@ export const DECK: Card[] = [
   {
     name: 'Panda',
     icon: '🐼',
-    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: 1, y: 1 },
@@ -228,7 +210,6 @@ export const DECK: Card[] = [
   {
     name: 'Rabbit',
     icon: '🐇',
-    isActive: true,
     moves: [
       { x: -1, y: -1 },
       { x: 1, y: 1 },
@@ -238,7 +219,6 @@ export const DECK: Card[] = [
   {
     name: 'Rat',
     icon: '🐀',
-    isActive: true,
     moves: [
       { x: -1, y: 0 },
       { x: 0, y: 1 },
@@ -248,7 +228,6 @@ export const DECK: Card[] = [
   {
     name: 'Rooster',
     icon: '🐓',
-    isActive: true,
     moves: [
       { x: -1, y: 0 },
       { x: -1, y: -1 },
@@ -259,7 +238,6 @@ export const DECK: Card[] = [
   {
     name: 'Shark',
     icon: '🦈',
-    isActive: true,
     moves: [
       { x: 0, y: 1 },
       { x: 2, y: 0 },
@@ -269,7 +247,6 @@ export const DECK: Card[] = [
   {
     name: 'Snake',
     icon: '🐍',
-    isActive: true,
     moves: [
       { x: -1, y: 0 },
       { x: 1, y: 1 },
@@ -279,7 +256,6 @@ export const DECK: Card[] = [
   {
     name: 'Spider',
     icon: '🕷',
-    isActive: true,
     moves: [
       { x: -2, y: 1 },
       { x: 0, y: 1 },
@@ -289,7 +265,6 @@ export const DECK: Card[] = [
   {
     name: 'Swan',
     icon: '🦢',
-    isActive: true,
     moves: [
       { x: -1, y: 1 },
       { x: -1, y: 0 },
@@ -300,7 +275,6 @@ export const DECK: Card[] = [
   {
     name: 'Tiger',
     icon: '🐅',
-    isActive: true,
     moves: [
       { x: 0, y: 2 },
       { x: 0, y: -1 }
@@ -309,7 +283,6 @@ export const DECK: Card[] = [
   {
     name: 'Turtle',
     icon: '🐢',
-    isActive: null,
     moves: [
       { x: -2, y: 0 },
       { x: -1, y: -1 },
@@ -320,7 +293,6 @@ export const DECK: Card[] = [
   {
     name: 'Unicorn',
     icon: '🦄',
-    isActive: null,
     moves: [
       { x: -1, y: 2 },
       { x: 1, y: 2 },
@@ -328,3 +300,40 @@ export const DECK: Card[] = [
     ]
   }
 ];
+
+/** Card names dealt from by default; the rest are opt-in through the deck settings. */
+export const DEFAULT_DECK: readonly string[] = [
+  'Badger',
+  'Bear',
+  'Boar',
+  'Crab',
+  'Crocodile',
+  'Dog',
+  'Dolphin',
+  'Dragon',
+  'Duck',
+  'Eagle',
+  'Elephant',
+  'Fox',
+  'Frog',
+  'Giraffe',
+  'Horse',
+  'Kangaroo',
+  'Lizard',
+  'Monkey',
+  'Mouse',
+  'Octopus',
+  'Ox',
+  'Panda',
+  'Rabbit',
+  'Rat',
+  'Rooster',
+  'Shark',
+  'Snake',
+  'Spider',
+  'Swan',
+  'Tiger',
+];
+
+export const cardByName = (name: string): Card | undefined =>
+  DECK.find(card => card.name === name);

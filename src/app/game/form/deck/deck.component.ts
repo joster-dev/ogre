@@ -1,9 +1,10 @@
-import { Component, input, output } from '@angular/core';
+import { Component, computed, inject, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { ChoiceComponent } from '@joster-dev/chaos-control';
 
-import { Card } from '../../../models';
+import { DECK } from '../../../models';
+import { SettingsStore } from '../../settings.store';
 import { CardComponent } from '../../card/card.component';
 
 @Component({
@@ -13,19 +14,24 @@ import { CardComponent } from '../../card/card.component';
   styleUrl: './deck.component.scss'
 })
 export class DeckComponent {
-  readonly model = input<Card[]>([]);
+  private readonly settings = inject(SettingsStore);
 
   readonly changeCardIsActive = output<void>();
 
-  readonly includedItems = [{ key: true, value: 'Included' }];
+  protected readonly includedItems = [{ key: true, value: 'Included' }];
 
-  get countActiveCards() {
-    return this.model().filter(card => card.isActive === true).length;
-  }
+  /** `cc-choice` with a single item models "on" as `true` and "off" as `null`. */
+  protected readonly cards = computed(() => DECK.map(card => {
+    const included = this.settings.includes(card.name);
+    return {
+      card,
+      included: included ? true : null,
+      isLocked: included && !this.settings.canRemove(),
+    };
+  }));
 
-  changeCard(card: Card, isActive: true | null) {
-    if (this.countActiveCards <= 5) return;
-    card.isActive = isActive;
+  protected setIncluded(name: string, value: true | null): void {
+    this.settings.setIncluded(name, value === true);
     this.changeCardIsActive.emit();
   }
 }
