@@ -4,8 +4,6 @@ import { IconComponent } from "@joster-dev/icon";
 
 import { Side } from "../../models";
 
-const FILL: Readonly<Record<Side, string>> = { a: "702400", b: "002470" };
-
 @Component({
   selector: "ogre-cell",
   imports: [IconComponent],
@@ -24,6 +22,4 @@ export class CellComponent {
   readonly isTarget = input(false);
 
   readonly action = output<void>();
-
-  protected readonly fill = FILL;
 }

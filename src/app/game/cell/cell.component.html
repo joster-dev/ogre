@@ -8,7 +8,7 @@
   @if (side(); as side) {
   <icon
     [type]="isMain() ? 'crown' : 'ring'"
-    [fill]="fill[side]"
+    [fill]="side === 'a' ? ['current', null] : [null, 'current']"
     [title]="isMain() ? 'King' : 'Pawn'"
   ></icon>
   }
@@ -16,7 +16,7 @@
   <icon
     class="watermark"
     type="ogre"
-    [fill]="fill[temple]"
+    [fill]="temple === 'a' ? ['current', null] : [null, 'current']"
   ></icon>
   }
   @if (isTarget()) {
