@@ -1,5 +1,6 @@
 <button
   type="button"
+  [class.isDeck]="isDeck()"
   [class.is-active]="isActive()"
   [class.rotate-90]="side() === 'a'"
   [class.rotate-270]="side() === 'b'"
@@ -12,11 +13,16 @@
     @for (square of squares(); track $index) {
     <div
       class="cell"
-      [class.accent]="(square.x + square.y) % 2 === 0"
-      [class.center]="square.isCenter"
       [style.grid-column]="square.x + 1"
       [style.grid-row]="square.y + 1"
     >
+      @if (square.isCenter) {
+      <icon
+        type="ring"
+        class="rotate-270"
+        [fill]="['current', null]"
+      ></icon>
+      }
       @if (square.isActive) {
       <div class="target-bg"></div>
       }

@@ -1,14 +1,15 @@
 @for (entry of cards(); track entry.card.name) {
-  <div>
-    <cc-choice
-      [ngModel]="entry.included"
-      (ngModelChange)="setIncluded(entry.card.name, $event)"
-      [items]="includedItems"
-      [disabled]="entry.isLocked"
-    ></cc-choice>
-    <ogre-card
-      [card]="entry.card"
-      [isDisabled]="true"
-    ></ogre-card>
-  </div>
+<div>
+  <cc-choice
+    [ngModel]="entry.included"
+    (ngModelChange)="setIncluded(entry.card.name, $event)"
+    [items]="includedItems"
+    [disabled]="entry.isLocked"
+  ></cc-choice>
+  <ogre-card
+    [card]="entry.card"
+    [isDisabled]="true"
+    [isDeck]="true"
+  ></ogre-card>
+</div>
 }

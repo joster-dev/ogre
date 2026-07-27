@@ -1,5 +1,7 @@
 import { Component, computed, input, output } from "@angular/core";
 
+import { IconComponent } from "@joster-dev/icon";
+
 import { Card, SIZE, Side } from "../../models";
 
 /** One square of a card's 5x5 move diagram. */
@@ -31,6 +33,7 @@ function diagram(card: Card): readonly Square[] {
 
 @Component({
   selector: "ogre-card[card]",
+  imports: [IconComponent],
   templateUrl: "./card.component.html",
   styleUrl: "./card.component.scss",
 })
@@ -42,6 +45,7 @@ export class CardComponent {
   readonly isDisabled = input(false);
   readonly isActive = input(false);
   readonly isPulse = input(false);
+  readonly isDeck = input(false);
 
   readonly action = output<void>();
 

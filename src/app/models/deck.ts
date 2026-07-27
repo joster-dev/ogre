@@ -11,17 +11,17 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: 0, y: 1 },
       { x: 2, y: 1 },
-      { x: -1, y: -1 }
-    ]
+      { x: -1, y: -1 },
+    ],
   },
   {
-    name: 'Bear',
-    icon: '🐻',
+    name: 'Cow',
+    icon: '🐄',
     moves: [
       { x: -1, y: 1 },
       { x: 0, y: 1 },
-      { x: 1, y: -1 }
-    ]
+      { x: 1, y: -1 },
+    ],
   },
   {
     name: 'Boar',
@@ -29,17 +29,17 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: 0, y: 1 },
       { x: -1, y: 0 },
-      { x: 1, y: 0 }
-    ]
+      { x: 1, y: 0 },
+    ],
   },
   {
-    name: 'Crab',
-    icon: '🦀',
+    name: 'Cat',
+    icon: '🐈',
     moves: [
       { x: 0, y: 1 },
       { x: -2, y: 0 },
-      { x: 2, y: 0 }
-    ]
+      { x: 2, y: 0 },
+    ],
   },
   {
     name: 'Crocodile',
@@ -47,8 +47,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: -2, y: 0 },
       { x: -1, y: -1 },
-      { x: 1, y: 1 }
-    ]
+      { x: 1, y: 1 },
+    ],
   },
   {
     name: 'Dog',
@@ -56,8 +56,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: -1, y: 1 },
       { x: -1, y: 0 },
-      { x: -1, y: -1 }
-    ]
+      { x: -1, y: -1 },
+    ],
   },
   {
     name: 'Dolphin',
@@ -65,8 +65,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 0 },
-      { x: -1, y: -1 }
-    ]
+      { x: -1, y: -1 },
+    ],
   },
   {
     name: 'Dragon',
@@ -75,8 +75,8 @@ export const DECK: readonly Card[] = [
       { x: -2, y: 1 },
       { x: 2, y: 1 },
       { x: -1, y: -1 },
-      { x: 1, y: -1 }
-    ]
+      { x: 1, y: -1 },
+    ],
   },
   {
     name: 'Duck',
@@ -84,8 +84,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: 0, y: 1 },
       { x: -1, y: -1 },
-      { x: 1, y: -1 }
-    ]
+      { x: 1, y: -1 },
+    ],
   },
   {
     name: 'Eagle',
@@ -93,8 +93,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: 1 },
-      { x: 0, y: -1 }
-    ]
+      { x: 0, y: -1 },
+    ],
   },
   {
     name: 'Elephant',
@@ -103,26 +103,26 @@ export const DECK: readonly Card[] = [
       { x: -1, y: 1 },
       { x: 1, y: 1 },
       { x: -1, y: 0 },
-      { x: 1, y: 0 }
-    ]
+      { x: 1, y: 0 },
+    ],
   },
   {
-    name: 'Fox',
-    icon: '🦊',
+    name: 'Deer',
+    icon: '🦌',
     moves: [
       { x: 1, y: 1 },
       { x: 1, y: 0 },
-      { x: 1, y: -1 }
-    ]
+      { x: 1, y: -1 },
+    ],
   },
   {
-    name: 'Frog',
-    icon: '🐸',
+    name: 'Penguin',
+    icon: '🐧',
     moves: [
       { x: -2, y: 0 },
       { x: -1, y: 1 },
-      { x: 1, y: -1 }
-    ]
+      { x: 1, y: -1 },
+    ],
   },
   {
     name: 'Giraffe',
@@ -130,8 +130,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: -2, y: 1 },
       { x: 2, y: 1 },
-      { x: 0, y: -1 }
-    ]
+      { x: 0, y: -1 },
+    ],
   },
   {
     name: 'Horse',
@@ -139,8 +139,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: -1, y: 0 },
       { x: 0, y: 1 },
-      { x: 0, y: -1 }
-    ]
+      { x: 0, y: -1 },
+    ],
   },
   {
     name: 'Kangaroo',
@@ -148,8 +148,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: -1, y: 1 },
       { x: 1, y: -1 },
-      { x: 2, y: 0 }
-    ]
+      { x: 2, y: 0 },
+    ],
   },
   {
     name: 'Lizard',
@@ -157,8 +157,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: -2, y: 0 },
       { x: 0, y: 1 },
-      { x: 1, y: -1 }
-    ]
+      { x: 1, y: -1 },
+    ],
   },
   {
     name: 'Monkey',
@@ -167,8 +167,8 @@ export const DECK: readonly Card[] = [
       { x: -1, y: 1 },
       { x: 1, y: 1 },
       { x: -1, y: -1 },
-      { x: 1, y: -1 }
-    ]
+      { x: 1, y: -1 },
+    ],
   },
   {
     name: 'Mouse',
@@ -176,8 +176,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: 0, y: 1 },
       { x: 1, y: 0 },
-      { x: -1, y: -1 }
-    ]
+      { x: -1, y: -1 },
+    ],
   },
   {
     name: 'Octopus',
@@ -186,8 +186,8 @@ export const DECK: readonly Card[] = [
       { x: -2, y: 0 },
       { x: -1, y: 1 },
       { x: 1, y: 1 },
-      { x: 2, y: 0 }
-    ]
+      { x: 2, y: 0 },
+    ],
   },
   {
     name: 'Ox',
@@ -195,17 +195,17 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: 0, y: 1 },
       { x: 0, y: -1 },
-      { x: 1, y: 0 }
-    ]
+      { x: 1, y: 0 },
+    ],
   },
   {
-    name: 'Panda',
-    icon: '🐼',
+    name: 'Camel',
+    icon: '🐪',
     moves: [
       { x: 0, y: 1 },
       { x: 1, y: 1 },
-      { x: -1, y: -1 }
-    ]
+      { x: -1, y: -1 },
+    ],
   },
   {
     name: 'Rabbit',
@@ -213,8 +213,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: -1, y: -1 },
       { x: 1, y: 1 },
-      { x: 2, y: 0 }
-    ]
+      { x: 2, y: 0 },
+    ],
   },
   {
     name: 'Rat',
@@ -222,8 +222,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: -1, y: 0 },
       { x: 0, y: 1 },
-      { x: 1, y: -1 }
-    ]
+      { x: 1, y: -1 },
+    ],
   },
   {
     name: 'Rooster',
@@ -232,8 +232,8 @@ export const DECK: readonly Card[] = [
       { x: -1, y: 0 },
       { x: -1, y: -1 },
       { x: 1, y: 1 },
-      { x: 1, y: 0 }
-    ]
+      { x: 1, y: 0 },
+    ],
   },
   {
     name: 'Shark',
@@ -241,8 +241,8 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: 0, y: 1 },
       { x: 2, y: 0 },
-      { x: -1, y: -1 }
-    ]
+      { x: -1, y: -1 },
+    ],
   },
   {
     name: 'Snake',
@@ -250,17 +250,17 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: -1, y: 0 },
       { x: 1, y: 1 },
-      { x: 1, y: -1 }
-    ]
+      { x: 1, y: -1 },
+    ],
   },
   {
-    name: 'Spider',
-    icon: '🕷',
+    name: 'Orangutan',
+    icon: '🦧',
     moves: [
       { x: -2, y: 1 },
       { x: 0, y: 1 },
-      { x: 1, y: -1 }
-    ]
+      { x: 1, y: -1 },
+    ],
   },
   {
     name: 'Swan',
@@ -269,16 +269,16 @@ export const DECK: readonly Card[] = [
       { x: -1, y: 1 },
       { x: -1, y: 0 },
       { x: 1, y: 0 },
-      { x: 1, y: -1 }
-    ]
+      { x: 1, y: -1 },
+    ],
   },
   {
     name: 'Tiger',
     icon: '🐅',
     moves: [
       { x: 0, y: 2 },
-      { x: 0, y: -1 }
-    ]
+      { x: 0, y: -1 },
+    ],
   },
   {
     name: 'Turtle',
@@ -287,8 +287,8 @@ export const DECK: readonly Card[] = [
       { x: -2, y: 0 },
       { x: -1, y: -1 },
       { x: 1, y: -1 },
-      { x: 2, y: 0 }
-    ]
+      { x: 2, y: 0 },
+    ],
   },
   {
     name: 'Unicorn',
@@ -296,44 +296,13 @@ export const DECK: readonly Card[] = [
     moves: [
       { x: -1, y: 2 },
       { x: 1, y: 2 },
-      { x: 0, y: -2 }
-    ]
-  }
+      { x: 0, y: -2 },
+    ],
+  },
 ];
 
 /** Card names dealt from by default; the rest are opt-in through the deck settings. */
-export const DEFAULT_DECK: readonly string[] = [
-  'Badger',
-  'Bear',
-  'Boar',
-  'Crab',
-  'Crocodile',
-  'Dog',
-  'Dolphin',
-  'Dragon',
-  'Duck',
-  'Eagle',
-  'Elephant',
-  'Fox',
-  'Frog',
-  'Giraffe',
-  'Horse',
-  'Kangaroo',
-  'Lizard',
-  'Monkey',
-  'Mouse',
-  'Octopus',
-  'Ox',
-  'Panda',
-  'Rabbit',
-  'Rat',
-  'Rooster',
-  'Shark',
-  'Snake',
-  'Spider',
-  'Swan',
-  'Tiger',
-];
+export const DEFAULT_DECK: readonly string[] = DECK.map((card) => card.name);
 
 export const cardByName = (name: string): Card | undefined =>
-  DECK.find(card => card.name === name);
+  DECK.find((card) => card.name === name);
