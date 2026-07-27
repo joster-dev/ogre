@@ -13,21 +13,16 @@
 }
 
 #game {
-  height: 100vh;
-  min-height: 650px;
+  min-height: max(100dvh, 650px);
   display: grid;
+  grid-template-rows: 1fr auto;
   grid-template-areas:
     "gd gd gd"
-    "gd gd gd"
-    "gd gd gd"
-    "ac sc bc"
-    "ac sc bc"
     "ac sc bc";
   @media (min-width: 1100px) {
+    grid-template-rows: auto 1fr;
     grid-template-areas:
       "ac sc sc sc bc"
-      "ac gd gd gd bc"
-      "ac gd gd gd bc"
       "ac gd gd gd bc";
   }
 }
@@ -88,11 +83,15 @@
   grid-area: gd;
   display: grid;
   margin: auto;
-  grid-auto-rows: max(min(10vw, 10vh), 2em);
-  grid-auto-columns: max(min(10vw, 10vh), 2em);
+  grid-template-rows: repeat(5, max(min(18vw, 18dvh), 2em));
+  grid-template-columns: repeat(5, max(min(18vw, 18dvh), 2em));
   grid-gap: 3px;
   padding: 3px;
   background: radial-gradient(currentColor, transparent);
+  @media (min-width: 1100px) {
+    grid-template-rows: repeat(5, max(min(11vw, 16dvh), 2em));
+    grid-template-columns: repeat(5, max(min(11vw, 16dvh), 2em));
+  }
 }
 
 header,
