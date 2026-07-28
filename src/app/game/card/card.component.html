@@ -2,9 +2,9 @@
   type="button"
   [class.isDeck]="isDeck()"
   [class.is-active]="isActive()"
-  [class.rotate-90]="side() === 'a'"
-  [class.rotate-270]="side() === 'b'"
   [class.pulse]="isPulse()"
+  [class.side-a]="side() === 'a'"
+  [class.side-b]="side() === 'b'"
   [disabled]="isDisabled()"
   [title]="card().name"
   (click)="action.emit()"
@@ -29,11 +29,7 @@
     </div>
     }
   </div>
-  <div
-    class="icon"
-    [class.rotate-90]="side() === 'b'"
-    [class.rotate-270]="side() === 'a'"
-  >
+  <div class="icon">
     {{card().icon}}
   </div>
 </button>

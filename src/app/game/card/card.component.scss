@@ -3,6 +3,28 @@ button {
   border-radius: 0.5em;
   display: flex;
   align-items: center;
+  gap: 1em;
+
+  // The two sides face each other, so a hand reads as a quarter turn each way.
+  // Only the (square) move diagram is rotated and the flex axis flipped, so the
+  // card's layout box matches what is drawn — rotating the whole card with a
+  // transform would leave it laid out in its unrotated size and overlap its
+  // neighbour. The emoji stays upright either way.
+  &.side-a {
+    flex-direction: column;
+
+    > .grid {
+      transform: rotate(90deg);
+    }
+  }
+
+  &.side-b {
+    flex-direction: column-reverse;
+
+    > .grid {
+      transform: rotate(270deg);
+    }
+  }
 
   &.isDeck {
     opacity: 1;
@@ -21,7 +43,6 @@ button {
   }
 
   > .grid {
-    margin-right: 1em;
     display: grid;
     grid-auto-rows: 1em;
     grid-auto-columns: 1em;
@@ -62,11 +83,4 @@ button {
   > .icon {
     font-size: 1.5em;
   }
-}
-
-.rotate-90 {
-  transform: rotate(90deg);
-}
-.rotate-270 {
-  transform: rotate(270deg);
 }

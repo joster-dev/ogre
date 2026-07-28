@@ -64,12 +64,13 @@
     <ng-container *ngTemplateOutlet="arrow"></ng-container>
   </div>
   <ng-template #arrow>
-    <span
-      class="arrow"
-      title="{{store.spare().name}} goes {{store.turn() === 'a' ? 'Left' : 'Right'}}"
-    >
-      {{store.turn() === 'a' ? '👈' : '👉'}}
-    </span>
+    <icon
+      type="chevron"
+      size="2em"
+      [class]="store.turn() === 'a' ? 'rotate-270' : 'rotate-90'"
+      [fill]="['current', null]"
+      fillRotate="90"
+    ></icon>
   </ng-template>
 
   <div
